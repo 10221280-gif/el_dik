@@ -1,60 +1,82 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الديك</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
 
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:Tahoma;
-  background:#0d0d0d;
+  font-family:'Cairo', sans-serif;
   color:#fff;
   text-align:center;
+  background:url('assets/images/stone.jpg') center/cover fixed;
 }
 
+/* خلفية داكنة */
 body::before{
   content:"";
   position:fixed;
-  width:100%;
-  height:100%;
-  background:url('assets/images/bg.jpg') center/cover;
-  opacity:0.12;
+  inset:0;
+  background:rgba(0,0,0,0.78);
   z-index:-1;
 }
 
 /* HEADER */
-header{padding:20px}
-
-.logo-svg{
-  display:flex;
-  justify-content:center;
+header{
+  padding:20px;
 }
 
-.logo-svg svg{
-  width:240px;
-  filter:drop-shadow(0 0 15px red);
+/* 🔥 LOGO (مدمج مع الخلفية) */
+.logo{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:10px;
+}
+
+.main-logo{
+  width:160px;
+  height:auto;
+
+  /* دمج قوي مع الخلفية */
+  mix-blend-mode: lighten;
+  opacity:0.95;
+
+  /* ظل خفيف جداً */
+  filter: drop-shadow(0 0 12px rgba(255,80,0,0.25));
+
+  /* مهم: بدون أي شكل */
+  border-radius:0;
 }
 
 .sub{
-  color:#ffcc80;
-  letter-spacing:3px;
+  font-size:14px;
+  letter-spacing:4px;
+  color:#ffb86b;
+  margin-top:10px;
 }
 
 /* NAV */
-nav{margin:15px}
+nav{
+  margin:15px 0;
+}
 
 nav button{
   background:#111;
-  color:#ff6600;
-  border:1px solid #ff6600;
+  color:#ff6a00;
+  border:1px solid #ff6a00;
   padding:10px 15px;
   border-radius:30px;
   margin:5px;
   cursor:pointer;
+  font-weight:700;
 }
 
 /* WELCOME */
@@ -62,28 +84,24 @@ nav button{
   padding:20px;
 }
 
-.welcome-img{
+#welcome img{
   width:90%;
   max-width:450px;
-  border-radius:25px;
-  box-shadow:0 0 20px rgba(255,102,0,0.5);
-  margin-top:20px;
+  border-radius:20px;
+  box-shadow:0 0 20px rgba(255,100,0,0.5);
 }
 
-.welcome-text{
+#welcome p{
   margin-top:15px;
-  font-size:22px;
-  color:#ffcc80;
   font-weight:bold;
-  letter-spacing:2px;
-  text-shadow:0 0 10px rgba(255,102,0,0.7);
+  color:#ffcc80;
 }
 
 /* MENU */
 .menu{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:20px;
+  gap:15px;
   padding:20px;
 }
 
@@ -91,7 +109,7 @@ nav button{
 
 /* CARD */
 .dish{
-  background:#1a1a1a;
+  background:#151515;
   border-radius:15px;
   overflow:hidden;
   box-shadow:0 0 10px rgba(255,100,0,0.3);
@@ -105,8 +123,8 @@ nav button{
 
 .dish p{
   padding:10px;
+  color:#ffd7a0;
   font-weight:bold;
-  color:#ffcc80;
 }
 
 .controls{
@@ -117,11 +135,12 @@ nav button{
 }
 
 .controls button{
-  background:#ff6600;
+  background:#ff6a00;
   border:none;
-  padding:5px 12px;
+  padding:6px 10px;
   border-radius:8px;
   cursor:pointer;
+  font-weight:bold;
 }
 
 /* CART */
@@ -131,7 +150,7 @@ nav button{
   left:0;
   width:100%;
   height:100%;
-  background:#111;
+  background:#0f0f0f;
   display:none;
   padding:20px;
   overflow:auto;
@@ -145,8 +164,9 @@ nav button{
 }
 
 #total{
-  color:#ff6600;
+  color:#ff6a00;
   margin-top:10px;
+  font-weight:bold;
 }
 
 /* INPUT */
@@ -168,28 +188,26 @@ input,textarea{
   border-radius:30px;
   margin-top:10px;
   cursor:pointer;
+  font-weight:bold;
 }
 
 /* CART BUTTON */
-.open-cart-wrapper{
+.cart-btn{
   position:fixed;
   bottom:20px;
   right:20px;
-}
-
-.open-cart{
-  background:#ff6600;
+  background:#ff6a00;
   border:none;
   padding:15px;
   border-radius:50%;
+  font-size:18px;
   cursor:pointer;
-  position:relative;
 }
 
 .cart-count{
-  position:absolute;
-  top:-5px;
-  right:-5px;
+  position:fixed;
+  bottom:55px;
+  right:15px;
   background:red;
   width:22px;
   height:22px;
@@ -198,13 +216,15 @@ input,textarea{
   align-items:center;
   justify-content:center;
   font-size:12px;
+  font-weight:bold;
 }
 
 /* FOOTER */
 footer{
   background:#111;
-  color:#ff6600;
+  color:#ff6a00;
   padding:10px;
+  margin-top:20px;
 }
 
 </style>
@@ -214,102 +234,77 @@ footer{
 
 <header>
 
-<div class="logo-svg">
-<svg viewBox="0 0 300 120">
-
-<path d="M60 60 C40 20, 100 20, 80 60 C100 90, 40 90, 60 60"
-fill="red" stroke="orange" stroke-width="3"/>
-
-<circle cx="72" cy="50" r="5" fill="white"/>
-
-<text x="110" y="70" fill="white" font-size="45" font-weight="bold">
-الديك
-</text>
-
-<line x1="110" y1="85" x2="260" y2="85" stroke="red" stroke-width="5"/>
-
-</svg>
+<div class="logo">
+  <img src="assets/images/logo.png" class="main-logo">
 </div>
 
-<span class="sub">FRIED CHICKEN</span>
+<div class="sub">FRIED CHICKEN</div>
 
 </header>
 
 <nav>
-<button onclick="showSection('sandwich')">السندويش</button>
-<button onclick="showSection('shawerma')">شاورما</button>
-<button onclick="goHome()">الرئيسية</button>
+  <button onclick="show('sandwich')">السندويش</button>
+  <button onclick="show('shawerma')">شاورما</button>
+  <button onclick="home()">الرئيسية</button>
 </nav>
 
-<!-- ✅ WELCOME (صورة + جملة) -->
 <section id="welcome">
-
-<img src="a0267957-a390-43ef-bbf3-a82ca2293688.jpeg" class="welcome-img">
-
-<div class="welcome-text">
-✦ عند الديك وقف إذا فيك ✦
-</div>
-
+  <img src="assets/images/welcome.jpg">
+  <p>✦ عند الديك وقف إذا فيك ✦</p>
 </section>
 
 <section id="sandwich" class="menu hidden">
 
-<div class="dish">
-<img src="assets/images/img1.jpeg">
-<p>مقانق – 350000</p>
-<div class="controls">
-<button onclick="add('مقانق',350000)">➕</button>
-<button onclick="remove('مقانق')">➖</button>
-</div>
-</div>
+  <div class="dish">
+    <img src="assets/images/img1.jpeg">
+    <p>مقانق - 350000</p>
+    <div class="controls">
+      <button onclick="add('مقانق',350000)">➕</button>
+      <button onclick="remove('مقانق')">➖</button>
+    </div>
+  </div>
 
-<div class="dish">
-<img src="assets/images/img1.jpeg">
-<p>فاهيتا – 400000</p>
-<div class="controls">
-<button onclick="add('فاهيتا',400000)">➕</button>
-<button onclick="remove('فاهيتا')">➖</button>
-</div>
-</div>
+  <div class="dish">
+    <img src="assets/images/img1.jpeg">
+    <p>فاهيتا - 400000</p>
+    <div class="controls">
+      <button onclick="add('فاهيتا',400000)">➕</button>
+      <button onclick="remove('فاهيتا')">➖</button>
+    </div>
+  </div>
 
 </section>
 
 <section id="shawerma" class="menu hidden">
 
-<div class="dish">
-<img src="assets/images/img1.jpeg">
-<p>شاورما دجاج كبيرة – 280000</p>
-<div class="controls">
-<button onclick="add('شاورما دجاج كبيرة',280000)">➕</button>
-<button onclick="remove('شاورما دجاج كبيرة')">➖</button>
-</div>
-</div>
+  <div class="dish">
+    <img src="assets/images/img1.jpeg">
+    <p>شاورما دجاج - 280000</p>
+    <div class="controls">
+      <button onclick="add('شاورما دجاج',280000)">➕</button>
+      <button onclick="remove('شاورما دجاج')">➖</button>
+    </div>
+  </div>
 
 </section>
 
 <!-- CART -->
 <div class="cart" id="cart">
+  <h2>🛒 السلة</h2>
+  <div id="items"></div>
+  <h3 id="total"></h3>
 
-<h2>🛒 سلة الطلبات</h2>
-<div id="cart-items"></div>
-<h3 id="total"></h3>
+  <input id="name" placeholder="الاسم">
+  <input id="phone" placeholder="رقم الهاتف">
+  <input id="address" placeholder="العنوان">
+  <textarea id="note" placeholder="ملاحظة"></textarea>
 
-<h3>🚚 معلومات التوصيل</h3>
-<input id="name" placeholder="الاسم">
-<input id="phone" placeholder="رقم الهاتف">
-<input id="address" placeholder="العنوان">
-<textarea id="note" placeholder="ملاحظة"></textarea>
-
-<button class="whatsapp" onclick="sendWhatsApp()">إرسال عبر واتساب</button>
-<button onclick="closeCart()">إغلاق</button>
-
+  <button class="whatsapp" onclick="send()">إرسال واتساب</button>
+  <button onclick="closeCart()">إغلاق</button>
 </div>
 
-<!-- CART BUTTON -->
-<div class="open-cart-wrapper">
-<button class="open-cart" onclick="openCart()">🛒</button>
-<div class="cart-count" id="cart-count">0</div>
-</div>
+<button class="cart-btn" onclick="openCart()">🛒</button>
+<div class="cart-count" id="count">0</div>
 
 <footer>©️ مطعم الديك</footer>
 
@@ -317,79 +312,51 @@ fill="red" stroke="orange" stroke-width="3"/>
 
 let cart = {};
 
-function add(name,price){
-  if(!cart[name]){
-    cart[name] = {qty:0,price:price};
-  }
-  cart[name].qty++;
-  renderCart();
+function add(n,p){
+  if(!cart[n]) cart[n]={q:0,p};
+  cart[n].q++;
+  render();
 }
 
-function remove(name){
-  if(cart[name]){
-    cart[name].qty--;
-    if(cart[name].qty <= 0){
-      delete cart[name];
-    }
-    renderCart();
+function remove(n){
+  if(cart[n]){
+    cart[n].q--;
+    if(cart[n].q<=0) delete cart[n];
+    render();
   }
 }
 
-function deleteItem(name){
-  delete cart[name];
-  renderCart();
+function render(){
+  let c=document.getElementById("items");
+  c.innerHTML="";
+  let total=0,count=0;
+
+  for(let i in cart){
+    total+=cart[i].q*cart[i].p;
+    count+=cart[i].q;
+
+    let d=document.createElement("div");
+    d.className="cart-item";
+    d.innerHTML=i+" x"+cart[i].q+" = "+cart[i].q*cart[i].p;
+    c.appendChild(d);
+  }
+
+  document.getElementById("total").innerText="المجموع: "+total;
+  document.getElementById("count").innerText=count;
 }
 
 function openCart(){
   document.getElementById("cart").style.display="block";
-  renderCart();
+  render();
 }
 
 function closeCart(){
   document.getElementById("cart").style.display="none";
 }
 
-function renderCart(){
-
-  let container=document.getElementById("cart-items");
-  container.innerHTML="";
-
-  let total=0;
-  let count=0;
-
-  let keys=Object.keys(cart);
-
-  for(let i=0;i<keys.length;i++){
-
-    let name=keys[i];
-    let item=cart[name];
-
-    let q=item.qty;
-    let p=item.price;
-
-    total+=q*p;
-    count+=q;
-
-    let div=document.createElement("div");
-    div.className="cart-item";
-
-    div.innerHTML=name+" × "+q+" = "+(q*p)+" <button>❌</button>";
-
-    div.querySelector("button").onclick=function(){
-      deleteItem(name);
-    };
-
-    container.appendChild(div);
-  }
-
-  document.getElementById("total").innerText="المجموع: "+total+" ل.ل";
-  document.getElementById("cart-count").innerText=count;
-}
-
-function sendWhatsApp(){
-
-  if(Object.keys(cart).length===0){
-    alert("السلة فارغة!");
+function send(){
+  if(Object.keys(cart).length === 0){
+    alert("السلة فارغة");
     return;
   }
 
@@ -398,33 +365,37 @@ function sendWhatsApp(){
   let address=document.getElementById("address").value;
   let note=document.getElementById("note").value;
 
-  let text="طلب جديد:\n";
-  let total=0;
+  let text="🛒 طلب جديد من الديك %0A%0A";
 
   for(let i in cart){
-    let q=cart[i].qty;
-    let p=cart[i].price;
-
-    total+=q*p;
-    text+=i+" x"+q+"\n";
+    text+=i+" x"+cart[i].q+" = "+(cart[i].q*cart[i].p)+"%0A";
   }
 
-  text+="\nالمجموع: "+total+" ل.ل\n\n";
-  text+="👤 "+name+"\n";
-  text+="📞 "+phone+"\n";
-  text+="🏠 "+address+"\n";
-  text+="📝 "+note;
+  let total=0;
+  for(let i in cart){
+    total+=cart[i].q*cart[i].p;
+  }
 
-  window.open("https://wa.me/96181448823?text="+encodeURIComponent(text));
+  text+="%0A💰 المجموع: "+total;
+  text+="%0A👤 الاسم: "+name;
+  text+="%0A📞 الرقم: "+phone;
+  text+="%0A📍 العنوان: "+address;
+  text+="%0A📝 ملاحظة: "+note;
+
+  window.open("https://wa.me/96181510680?text="+text,"_blank");
+
+  cart={};
+  render();
+  closeCart();
 }
 
-function showSection(id){
+function show(id){
   document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
   document.getElementById("welcome").style.display="none";
 }
 
-function goHome(){
+function home(){
   document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
   document.getElementById("welcome").style.display="block";
 }
