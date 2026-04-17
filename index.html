@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>الديك</title>
 
 <style>
@@ -15,321 +10,204 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-
   font-family:Tahoma;
-
   background:#0d0d0d;
-
   color:#fff;
-
   text-align:center;
-
 }
 
 body::before{
-
   content:"";
-
   position:fixed;
-
   width:100%;
-
   height:100%;
-
   background:url('assets/images/bg.jpg') center/cover;
-
   opacity:0.12;
-
   z-index:-1;
-
 }
 
 /* HEADER */
-
 header{padding:20px}
 
 .logo-svg{
-
   display:flex;
-
   justify-content:center;
-
 }
 
 .logo-svg svg{
-
   width:240px;
-
   filter:drop-shadow(0 0 15px red);
-
 }
 
 .sub{
-
   color:#ffcc80;
-
   letter-spacing:3px;
-
 }
 
 /* NAV */
-
 nav{margin:15px}
 
 nav button{
-
   background:#111;
-
   color:#ff6600;
-
   border:1px solid #ff6600;
-
   padding:10px 15px;
-
   border-radius:30px;
-
   margin:5px;
-
   cursor:pointer;
-
 }
 
 /* WELCOME */
-
 #welcome{
-
   padding:20px;
+}
 
+.welcome-img{
+  width:90%;
+  max-width:450px;
+  border-radius:25px;
+  box-shadow:0 0 20px rgba(255,102,0,0.5);
+  margin-top:20px;
+}
+
+.welcome-text{
+  margin-top:15px;
+  font-size:22px;
   color:#ffcc80;
-
+  font-weight:bold;
+  letter-spacing:2px;
+  text-shadow:0 0 10px rgba(255,102,0,0.7);
 }
 
 /* MENU */
-
 .menu{
-
   display:grid;
-
   grid-template-columns:repeat(2,1fr);
-
   gap:20px;
-
   padding:20px;
-
 }
 
 .menu.hidden{display:none}
 
 /* CARD */
-
 .dish{
-
   background:#1a1a1a;
-
   border-radius:15px;
-
   overflow:hidden;
-
   box-shadow:0 0 10px rgba(255,100,0,0.3);
-
 }
 
 .dish img{
-
   width:100%;
-
   height:150px;
-
   object-fit:cover;
-
 }
 
 .dish p{
-
   padding:10px;
-
   font-weight:bold;
-
   color:#ffcc80;
-
 }
 
 .controls{
-
   display:flex;
-
   justify-content:center;
-
   gap:10px;
-
   padding:10px;
-
 }
 
 .controls button{
-
   background:#ff6600;
-
   border:none;
-
   padding:5px 12px;
-
   border-radius:8px;
-
   cursor:pointer;
-
 }
 
 /* CART */
-
 .cart{
-
   position:fixed;
-
   top:0;
-
   left:0;
-
   width:100%;
-
   height:100%;
-
   background:#111;
-
   display:none;
-
   padding:20px;
-
   overflow:auto;
-
 }
 
 .cart-item{
-
   display:flex;
-
   justify-content:space-between;
-
   padding:10px;
-
   border-bottom:1px solid #333;
-
 }
 
 #total{
-
   color:#ff6600;
-
   margin-top:10px;
-
 }
 
 /* INPUT */
-
 input,textarea{
-
   width:100%;
-
   padding:10px;
-
   margin:5px 0;
-
   border:none;
-
   border-radius:8px;
-
 }
 
 /* WHATSAPP */
-
 .whatsapp{
-
   background:#25D366;
-
   color:#fff;
-
   border:none;
-
   padding:15px;
-
   width:100%;
-
   border-radius:30px;
-
   margin-top:10px;
-
   cursor:pointer;
-
 }
 
 /* CART BUTTON */
-
 .open-cart-wrapper{
-
   position:fixed;
-
   bottom:20px;
-
   right:20px;
-
 }
 
 .open-cart{
-
   background:#ff6600;
-
   border:none;
-
   padding:15px;
-
   border-radius:50%;
-
   cursor:pointer;
-
   position:relative;
-
 }
 
 .cart-count{
-
   position:absolute;
-
   top:-5px;
-
   right:-5px;
-
   background:red;
-
   width:22px;
-
   height:22px;
-
   border-radius:50%;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   font-size:12px;
-
 }
 
 /* FOOTER */
-
 footer{
-
   background:#111;
-
   color:#ff6600;
-
   padding:10px;
-
 }
 
 </style>
-
 </head>
 
 <body>
@@ -337,25 +215,20 @@ footer{
 <header>
 
 <div class="logo-svg">
-
 <svg viewBox="0 0 300 120">
 
 <path d="M60 60 C40 20, 100 20, 80 60 C100 90, 40 90, 60 60"
-
 fill="red" stroke="orange" stroke-width="3"/>
 
 <circle cx="72" cy="50" r="5" fill="white"/>
 
 <text x="110" y="70" fill="white" font-size="45" font-weight="bold">
-
 الديك
-
 </text>
 
 <line x1="110" y1="85" x2="260" y2="85" stroke="red" stroke-width="5"/>
 
 </svg>
-
 </div>
 
 <span class="sub">FRIED CHICKEN</span>
@@ -363,53 +236,40 @@ fill="red" stroke="orange" stroke-width="3"/>
 </header>
 
 <nav>
-
 <button onclick="showSection('sandwich')">السندويش</button>
-
 <button onclick="showSection('shawerma')">شاورما</button>
-
 <button onclick="goHome()">الرئيسية</button>
-
 </nav>
 
+<!-- ✅ WELCOME (صورة + جملة) -->
 <section id="welcome">
 
-<h2>🔥 نتميز بلقمتنا، وطعمتنا بتحكي عنا</h2>
+<img src="assets/images/welcome.jpg" class="welcome-img">
+
+<div class="welcome-text">
+✦ عند الديك وقف إذا فيك ✦
+</div>
 
 </section>
 
 <section id="sandwich" class="menu hidden">
 
 <div class="dish">
-
 <img src="assets/images/img1.jpeg">
-
 <p>مقانق – 350000</p>
-
 <div class="controls">
-
 <button onclick="add('مقانق',350000)">➕</button>
-
 <button onclick="remove('مقانق')">➖</button>
-
 </div>
-
 </div>
 
 <div class="dish">
-
 <img src="assets/images/img1.jpeg">
-
 <p>فاهيتا – 400000</p>
-
 <div class="controls">
-
 <button onclick="add('فاهيتا',400000)">➕</button>
-
 <button onclick="remove('فاهيتا')">➖</button>
-
 </div>
-
 </div>
 
 </section>
@@ -417,57 +277,38 @@ fill="red" stroke="orange" stroke-width="3"/>
 <section id="shawerma" class="menu hidden">
 
 <div class="dish">
-
 <img src="assets/images/img1.jpeg">
-
 <p>شاورما دجاج كبيرة – 280000</p>
-
 <div class="controls">
-
 <button onclick="add('شاورما دجاج كبيرة',280000)">➕</button>
-
 <button onclick="remove('شاورما دجاج كبيرة')">➖</button>
-
 </div>
-
 </div>
 
 </section>
 
 <!-- CART -->
-
 <div class="cart" id="cart">
 
 <h2>🛒 سلة الطلبات</h2>
-
 <div id="cart-items"></div>
-
 <h3 id="total"></h3>
 
 <h3>🚚 معلومات التوصيل</h3>
-
 <input id="name" placeholder="الاسم">
-
 <input id="phone" placeholder="رقم الهاتف">
-
 <input id="address" placeholder="العنوان">
-
 <textarea id="note" placeholder="ملاحظة"></textarea>
 
 <button class="whatsapp" onclick="sendWhatsApp()">إرسال عبر واتساب</button>
-
 <button onclick="closeCart()">إغلاق</button>
 
 </div>
 
 <!-- CART BUTTON -->
-
 <div class="open-cart-wrapper">
-
 <button class="open-cart" onclick="openCart()">🛒</button>
-
 <div class="cart-count" id="cart-count">0</div>
-
 </div>
 
 <footer>©️ مطعم الديك</footer>
@@ -477,181 +318,118 @@ fill="red" stroke="orange" stroke-width="3"/>
 let cart = {};
 
 function add(name,price){
-
   if(!cart[name]){
-
     cart[name] = {qty:0,price:price};
-
   }
-
   cart[name].qty++;
-
   renderCart();
-
 }
 
 function remove(name){
-
   if(cart[name]){
-
     cart[name].qty--;
-
     if(cart[name].qty <= 0){
-
       delete cart[name];
-
     }
-
     renderCart();
-
   }
-
 }
 
 function deleteItem(name){
-
-  if(cart[name]){
-
-    delete cart[name];
-
-    renderCart();
-
-  }
-
+  delete cart[name];
+  renderCart();
 }
 
 function openCart(){
-
   document.getElementById("cart").style.display="block";
-
   renderCart();
-
 }
 
 function closeCart(){
-
   document.getElementById("cart").style.display="none";
-
 }
 
 function renderCart(){
 
-  let container = document.getElementById("cart-items");
+  let container=document.getElementById("cart-items");
+  container.innerHTML="";
 
-  container.innerHTML = "";
+  let total=0;
+  let count=0;
 
-  let total = 0;
+  let keys=Object.keys(cart);
 
-  let count = 0;
+  for(let i=0;i<keys.length;i++){
 
-  let keys = Object.keys(cart);
+    let name=keys[i];
+    let item=cart[name];
 
-  for(let i = 0; i < keys.length; i++){
+    let q=item.qty;
+    let p=item.price;
 
-    let name = keys[i];
+    total+=q*p;
+    count+=q;
 
-    let item = cart[name];
+    let div=document.createElement("div");
+    div.className="cart-item";
 
-    if(!item) continue;
+    div.innerHTML=name+" × "+q+" = "+(q*p)+" <button>❌</button>";
 
-    let q = item.qty;
-
-    let p = item.price;
-
-    total += q * p;
-
-    count += q;
-
-    let div = document.createElement("div");
-
-    div.className = "cart-item";
-
-    div.innerHTML = name + " × " + q + " = " + (q*p) + " <button>❌</button>";
-
-    div.querySelector("button").onclick = function(){
-
+    div.querySelector("button").onclick=function(){
       deleteItem(name);
-
     };
 
     container.appendChild(div);
-
   }
 
-  document.getElementById("total").innerText = "المجموع: " + total + " ل.ل";
-
-  document.getElementById("cart-count").innerText = count;
-
+  document.getElementById("total").innerText="المجموع: "+total+" ل.ل";
+  document.getElementById("cart-count").innerText=count;
 }
 
 function sendWhatsApp(){
 
-  if(Object.keys(cart).length === 0){
-
+  if(Object.keys(cart).length===0){
     alert("السلة فارغة!");
-
     return;
-
   }
 
-  let name = document.getElementById("name").value;
+  let name=document.getElementById("name").value;
+  let phone=document.getElementById("phone").value;
+  let address=document.getElementById("address").value;
+  let note=document.getElementById("note").value;
 
-  let phone = document.getElementById("phone").value;
-
-  let address = document.getElementById("address").value;
-
-  let note = document.getElementById("note").value;
-
-  let text = "طلب جديد:\n";
-
-  let total = 0;
+  let text="طلب جديد:\n";
+  let total=0;
 
   for(let i in cart){
+    let q=cart[i].qty;
+    let p=cart[i].price;
 
-    let q = cart[i].qty;
-
-    let p = cart[i].price;
-
-    total += q * p;
-
-    text += i + " x" + q + "\n";
-
+    total+=q*p;
+    text+=i+" x"+q+"\n";
   }
 
-  text += "\nالمجموع: " + total + " ل.ل\n\n";
+  text+="\nالمجموع: "+total+" ل.ل\n\n";
+  text+="👤 "+name+"\n";
+  text+="📞 "+phone+"\n";
+  text+="🏠 "+address+"\n";
+  text+="📝 "+note;
 
-  text += "👤 " + name + "\n";
-
-  text += "📞 " + phone + "\n";
-
-  text += "🏠 " + address + "\n";
-
-  text += "📝 " + note;
-
-  window.open("https://wa.me/96181448823?text=" + encodeURIComponent(text));
-
+  window.open("https://wa.me/96181448823?text="+encodeURIComponent(text));
 }
 
 function showSection(id){
-
   document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
-
   document.getElementById(id).classList.remove("hidden");
-
   document.getElementById("welcome").style.display="none";
-
 }
 
 function goHome(){
-
   document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
-
   document.getElementById("welcome").style.display="block";
-
 }
 
 </script>
 
 </body>
-
 </html>
