@@ -16,10 +16,9 @@ body{
   font-family:'Cairo', sans-serif;
   color:#fff;
   text-align:center;
-  background:url('0F558553-425A-4B75-A578-2551C5764CF3.png') center/cover fixed;
+  background:url('WhatsApp Image 2026-04-18 at 4.18.07 AM.jpeg') center/cover fixed;
 }
 
-/* خلفية داكنة */
 body::before{
   content:"";
   position:fixed;
@@ -28,12 +27,10 @@ body::before{
   z-index:-1;
 }
 
-/* HEADER */
 header{
   padding:18px 15px 8px;
 }
 
-/* 🔥 LOGO (مدمج مع الخلفية) */
 .logo{
   display:flex;
   justify-content:center;
@@ -44,15 +41,9 @@ header{
 .main-logo{
   width:250px;
   height:auto;
-
-  /* دمج قوي مع الخلفية */
   mix-blend-mode: lighten;
   opacity:0.95;
-
-  /* ظل خفيف جداً */
   filter: drop-shadow(0 0 12px rgba(255,80,0,0.25));
-
-  /* مهم: بدون أي شكل */
   border-radius:0;
 }
 
@@ -63,7 +54,6 @@ header{
   margin-top:10px;
 }
 
-/* NAV */
 nav{
   margin:8px 10px 15px;
 }
@@ -79,7 +69,6 @@ nav button{
   font-weight:700;
 }
 
-/* WELCOME */
 #welcome{
   padding:20px;
 }
@@ -97,7 +86,6 @@ nav button{
   color:#ffcc80;
 }
 
-/* MENU */
 .menu{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -107,7 +95,6 @@ nav button{
 
 .menu.hidden{display:none}
 
-/* CARD */
 .dish{
   background:#151515;
   border-radius:15px;
@@ -122,9 +109,21 @@ nav button{
 }
 
 .dish p{
-  padding:10px;
+  padding:10px 10px 4px;
   color:#ffd7a0;
   font-weight:bold;
+}
+
+.ingredients{
+  font-size:12px;
+  color:#cfcfcf;
+  padding:0 10px 6px;
+}
+
+.price{
+  color:#ffb86b;
+  font-size:14px;
+  padding-bottom:5px;
 }
 
 .controls{
@@ -143,7 +142,6 @@ nav button{
   font-weight:bold;
 }
 
-/* CART */
 .cart{
   position:fixed;
   top:0;
@@ -159,8 +157,19 @@ nav button{
 .cart-item{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:10px;
   border-bottom:1px solid #333;
+  gap:10px;
+}
+
+.delete-btn{
+  background:red;
+  color:#fff;
+  border:none;
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
 }
 
 #total{
@@ -169,7 +178,6 @@ nav button{
   font-weight:bold;
 }
 
-/* INPUT */
 input,textarea{
   width:100%;
   padding:10px;
@@ -178,7 +186,6 @@ input,textarea{
   border-radius:8px;
 }
 
-/* WHATSAPP */
 .whatsapp{
   background:#25D366;
   color:#fff;
@@ -191,7 +198,6 @@ input,textarea{
   font-weight:bold;
 }
 
-/* CART BUTTON */
 .cart-btn{
   position:fixed;
   bottom:20px;
@@ -219,7 +225,6 @@ input,textarea{
   font-weight:bold;
 }
 
-/* FOOTER */
 footer{
   background:#111;
   color:#ff6a00;
@@ -233,17 +238,17 @@ footer{
 <body>
 
 <header>
-
 <div class="logo">
-  <img src="23FA8AAA-C7ED-4683-80E8-2D1F1225B0B8.png" class="main-logo">
+  <img src="WhatsApp Image 2026-04-18 at 2.55.19 PM.jpeg" class="main-logo">
 </div>
-
-
 </header>
 
 <nav>
   <button onclick="show('sandwich')">السندويش</button>
-  <button onclick="show('shawerma')">شاورما</button>
+  <button onclick="show('berger')">برغر</button>
+  <button onclick="show('سناك')">سناك</button>
+  <button onclick="show('عصير')">عصير</button>
+
   <button onclick="home()">الرئيسية</button>
 </nav>
 
@@ -256,29 +261,98 @@ footer{
 
   <div class="dish">
     <img src="assets/images/img1.jpeg">
-    <p>مقانق - 350000</p>
+    <p>كرسبي </p>
+    <div class="ingredients">دجاج كرسبي ، بطاطا،توم، كبيس ، ملفوف ، كتشب</div>
+    <div class="price">4.5$</div>
     <div class="controls">
-      <button onclick="add('مقانق',350000)">➕</button>
-      <button onclick="remove('مقانق')">➖</button>
+      <button onclick="add('كرسبي',4.5)">➕</button>
+      <button onclick="remove('كرسبي')">➖</button>
     </div>
   </div>
 
   <div class="dish">
     <img src="assets/images/img1.jpeg">
-    <p>فاهيتا - 400000</p>
+    <p>فاهيتا</p>
+    <div class="ingredients">دجاجمتبل، بصل ، فليفلة، موزريلا، صوص افوكا</div>
+    <div class="price">7$</div>
     <div class="controls">
-      <button onclick="add('فاهيتا',400000)">➕</button>
+      <button onclick="add('فاهيتا',7)">➕</button>
       <button onclick="remove('فاهيتا')">➖</button>
     </div>
   </div>
-
+    <div class="dish">
+    <img src="assets/images/img1.jpeg">
+    <p>بيكاسو سندويش</p>
+    <div class="ingredients">دجاج مشوي، موزريلا ، خس ،كبيس ،طماطم، صوص</div>
+    <div class="price">5$</div>
+    <div class="controls">
+      <button onclick="add('بيكاسو سندويش',5)">➕</button>
+      <button onclick="remove('بيكاسو سندويش')">➖</button>
+    </div>
+  </div>
+    <div class="dish">
+    <img src="assets/images/img1.jpeg">
+    <p>بونلس سندويش</p>
+    <div class="ingredients">بونلس دجاج نكهات:باربكيو، بوفلو ،عسل
+      /و خردل ،مايونيز ، خس ، جبنة </div>
+    <div class="price">5$</div>
+    <div class="controls">
+      <button onclick="add('بونلس سندويش',5)">➕</button>
+      <button onclick="remove('بونلس سندويش')">➖</button>
+    </div>
+  </div>
+   <div class="dish">
+    <img src="assets/images/img1.jpeg">
+    <p>طاووق سندويش</p>
+    <div class="ingredients">طاووق مشوي ،بطاطا ، ثوم ،كبيس ، سلطة ملفوف</div>
+    <div class="price">4.5$</div>
+    <div class="controls">
+      <button onclick="add('طاووق سندويش',4.5)">➕</button>
+      <button onclick="remove('طاووق سندويش')">➖</button>
+    </div>
+  </div>
+    </div>
+   <div class="dish">
+    <img src="assets/images/img1.jpeg">
+    <p>شيكن ساب سندويش</p>
+    <div class="ingredients">دجاج مشوي ، مايونيز ، ثوم ، كبيس ، خس ، درة ، موزريلا </div>
+    <div class="price">5$</div>
+    <div class="controls">
+      <button onclick="add('شيكن ساب سندويش',5)">➕</button>
+      <button onclick="remove('شيكن ساب سندويش')">➖</button>
+    </div>
+  </div>
+    </div>
+   <div class="dish">
+    <img src="assets/images/img1.jpeg">
+    <p>بطاطا سندويش</p>
+    <div class="ingredients">ثوم ،كبيس ، سلطة ملفوف ، كتشب  </div>
+    <div class="price">2$</div>
+    <div class="controls">
+      <button onclick="add(' بطاطا سندويش',2)">➕</button>
+      <button onclick="remove('بطاطا سندويش')">➖</button>
+    </div>
+  </div>
+     </div>
+   <div class="dish">
+    <img src="assets/images/img1.jpeg">
+    <p>شيكن بيستو سندويش </p>
+    <div class="ingredients">صوص بيستو ،بايبي شيبس ، دجاج ، موزريلا </div>
+    <div class="price">5$</div>
+    <div class="controls">
+      <button onclick="add(' بطاطا سندويش',5)">➕</button>
+      <button onclick="remove('بطاطا سندويش')">➖</button>
+    </div>
+  </div>
 </section>
 
 <section id="shawerma" class="menu hidden">
 
   <div class="dish">
     <img src="assets/images/img1.jpeg">
-    <p>شاورما دجاج - 280000</p>
+    <p>شاورما دجاج</p>
+    <div class="ingredients">ثوم، مخلل، بطاطا</div>
+    <div class="price">280000</div>
     <div class="controls">
       <button onclick="add('شاورما دجاج',280000)">➕</button>
       <button onclick="remove('شاورما دجاج')">➖</button>
@@ -287,7 +361,6 @@ footer{
 
 </section>
 
-<!-- CART -->
 <div class="cart" id="cart">
   <h2>🛒 السلة</h2>
   <div id="items"></div>
@@ -325,6 +398,11 @@ function remove(n){
   }
 }
 
+function deleteItem(n){
+  delete cart[n];
+  render();
+}
+
 function render(){
   let c=document.getElementById("items");
   c.innerHTML="";
@@ -336,7 +414,10 @@ function render(){
 
     let d=document.createElement("div");
     d.className="cart-item";
-    d.innerHTML=i+" x"+cart[i].q+" = "+cart[i].q*cart[i].p;
+    d.innerHTML=`
+      <span>${i} x${cart[i].q} = ${cart[i].q*cart[i].p}</span>
+      <button class="delete-btn" onclick="deleteItem('${i}')">حذف</button>
+    `;
     c.appendChild(d);
   }
 
