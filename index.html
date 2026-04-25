@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -10,13 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
 font-family:'Cairo',sans-serif;
 color:#fff;
 text-align:center;
 background:url('5f099691-9a86-4815-b501-8396c9704fb8.jpeg') center/cover fixed;
+max-width:1600px;
+margin:auto;
 }
 
 body::before{
@@ -27,7 +32,9 @@ background:rgba(0,0,0,.78);
 z-index:-1;
 }
 
-header{padding:18px 15px 8px;}
+header{
+padding:18px 15px 8px;
+}
 
 .logo{
 display:flex;
@@ -44,24 +51,34 @@ opacity:.95;
 filter:drop-shadow(0 0 12px rgba(255,80,0,.25));
 }
 
-nav{margin:8px 10px 15px;}
+nav{
+margin:8px 10px 15px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+}
 
 nav button{
 background:#111;
 color:#ff6a00;
 border:1px solid #ff6a00;
-padding:10px 15px;
+padding:10px 18px;
 border-radius:30px;
-margin:5px;
 cursor:pointer;
 font-weight:700;
+font-size:15px;
 }
 
-#welcome{padding:20px;}
+#welcome{
+padding:20px;
+max-width:1200px;
+margin:auto;
+}
 
 #welcome img{
 width:90%;
-max-width:450px;
+max-width:500px;
 border-radius:20px;
 box-shadow:0 0 20px rgba(255,100,0,.5);
 }
@@ -70,6 +87,7 @@ box-shadow:0 0 20px rgba(255,100,0,.5);
 margin-top:15px;
 font-weight:bold;
 color:#ffcc80;
+font-size:18px;
 }
 
 .social{
@@ -94,15 +112,24 @@ display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:15px;
 padding:20px;
+max-width:1300px;
+margin:auto;
 }
 
-.menu.hidden{display:none;}
+.menu.hidden{
+display:none;
+}
 
 .dish{
 background:#151515;
 border-radius:15px;
 overflow:hidden;
 box-shadow:0 0 10px rgba(255,100,0,.3);
+transition:.3s;
+}
+
+.dish:hover{
+transform:translateY(-4px);
 }
 
 .dish img{
@@ -115,18 +142,21 @@ object-fit:cover;
 padding:10px 10px 4px;
 color:#ffd7a0;
 font-weight:bold;
+font-size:16px;
 }
 
 .ingredients{
 font-size:12px;
 color:#cfcfcf;
 padding:0 10px 6px;
+min-height:40px;
 }
 
 .price{
 color:#ffb86b;
 font-size:14px;
 padding-bottom:5px;
+font-weight:bold;
 }
 
 .controls{
@@ -143,6 +173,7 @@ padding:6px 10px;
 border-radius:8px;
 cursor:pointer;
 font-weight:bold;
+color:#fff;
 }
 
 .cart-btn{
@@ -156,6 +187,7 @@ border-radius:50%;
 font-size:18px;
 cursor:pointer;
 z-index:999;
+color:#fff;
 }
 
 .cart-count{
@@ -188,7 +220,8 @@ cursor:pointer;
 z-index:999;
 }
 
-.cart,.admin-panel{
+.cart,
+.admin-panel{
 position:fixed;
 top:0;
 left:0;
@@ -201,19 +234,22 @@ overflow:auto;
 z-index:9999;
 }
 
-input,textarea{
+input,
+textarea{
 width:100%;
-padding:10px;
-margin:5px 0;
+padding:12px;
+margin:6px 0;
 border:none;
 border-radius:8px;
+font-family:'Cairo',sans-serif;
 }
 
 button{
 font-family:'Cairo',sans-serif;
 }
 
-.whatsapp,.save-btn{
+.whatsapp,
+.save-btn{
 background:#25D366;
 color:#fff;
 border:none;
@@ -242,41 +278,16 @@ color:#ff6a00;
 padding:10px;
 margin-top:20px;
 }
-  <!-- ضع هذا التعديل داخل الكود الحالي -->
-
-<!-- داخل <style> أضف في آخر ملف CSS -->
-
-<style>
-
-/* تحسين نسخة اللابتوب */
-body{
-max-width:1400px;
-margin:auto;
-}
 
 @media(min-width:900px){
 
-header,
-nav,
-#welcome,
-.menu,
-footer{
-max-width:1200px;
-margin:auto;
-}
-
 .menu{
 grid-template-columns:repeat(4,1fr);
-gap:20px;
-padding:30px;
+gap:22px;
 }
 
 .dish img{
-height:180px;
-}
-
-#welcome img{
-max-width:600px;
+height:190px;
 }
 
 nav button{
@@ -284,55 +295,106 @@ padding:12px 22px;
 font-size:16px;
 }
 
+#welcome img{
+max-width:650px;
 }
 
-/* لوحة أدمن احترافية */
+}
 
-.admin-panel{
-background:#101010;
+@media(max-width:600px){
+
+.menu{
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+padding:12px;
+}
+
+.dish img{
+height:130px;
+}
+
+}
+  .admin-panel{
+background:#111;
 }
 
 .admin-box{
-background:#181818;
+background:#1a1a1a;
 padding:15px;
 border-radius:15px;
-margin-top:15px;
+margin:15px 0;
+text-align:right;
+}
+
+.admin-box h3{
+margin-bottom:10px;
+color:#ff6a00;
 }
 
 .search-results{
 margin-top:10px;
-text-align:right;
 }
 
 .search-item{
-background:#1d1d1d;
+background:#222;
 padding:10px;
-margin:8px 0;
 border-radius:10px;
+margin-bottom:8px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 gap:10px;
 }
 
-.search-item button{
-padding:6px 10px;
-border:none;
-border-radius:8px;
-cursor:pointer;
+.search-item span{
+font-size:14px;
+font-weight:bold;
+color:#fff;
 }
 
-.delete-btn{
-background:#ff2d2d;
-color:#fff;
+.search-actions{
+display:flex;
+gap:8px;
 }
 
 .edit-btn{
 background:#ff6a00;
+border:none;
+padding:7px 12px;
+border-radius:8px;
 color:#fff;
+cursor:pointer;
 }
 
-</style>
+.delete-btn{
+background:#ff2e2e;
+border:none;
+padding:7px 12px;
+border-radius:8px;
+color:#fff;
+cursor:pointer;
+}
+
+.cart-item{
+background:#1b1b1b;
+padding:10px;
+border-radius:10px;
+margin-bottom:8px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+}
+
+.cart-item button{
+background:#ff2d2d;
+border:none;
+color:#fff;
+padding:6px 10px;
+border-radius:8px;
+cursor:pointer;
+}
+
 </style>
 </head>
 
@@ -357,8 +419,8 @@ color:#fff;
 <p>✦ عند الديك وقف إذا فيك ✦</p>
 
 <div class="social">
-<a target="_blank" href="https://www.instagram.com/el.deek.lb?igsh=cjd5bzVqdjZ6Y2hq&utm_source=qr">Instagram</a>
-<a target="_blank" href="https://www.tiktok.com/@el.deek.lb?_r=1&_t=ZS-95ogAoQfiJb">TikTok</a>
+<a target="_blank" href="https://www.instagram.com/el.deek.lb">Instagram</a>
+<a target="_blank" href="https://www.tiktok.com/@el.deek.lb">TikTok</a>
 </div>
 </section>
 
@@ -369,7 +431,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>كرسبي سندويش</p>
-<div class="ingredients">دجاج كرسبي ، بطاطا،توم، كبيس ، ملفوف ، كتشب</div>
+<div class="ingredients">دجاج كرسبي ، بطاطا، توم، كبيس ، ملفوف ، كتشب</div>
 <div class="price">4.5$</div>
 <div class="controls">
 <button onclick="add('كرسبي سندويش',4.5)">➕</button>
@@ -391,7 +453,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>بيكاسو سندويش</p>
-<div class="ingredients">دجاج مشوي، موزريلا ، خس ،كبيس ،طماطم، صوص</div>
+<div class="ingredients">دجاج مشوي، موزريلا ، خس ، كبيس ، طماطم ، صوص</div>
 <div class="price">5$</div>
 <div class="controls">
 <button onclick="add('بيكاسو سندويش',5)">➕</button>
@@ -413,7 +475,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>طاووق سندويش</p>
-<div class="ingredients">طاووق مشوي ،بطاطا ، ثوم ،كبيس</div>
+<div class="ingredients">طاووق مشوي ، بطاطا ، ثوم ، كبيس</div>
 <div class="price">4.5$</div>
 <div class="controls">
 <button onclick="add('طاووق سندويش',4.5)">➕</button>
@@ -424,7 +486,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>شيكن ساب سندويش</p>
-<div class="ingredients">دجاج مشوي ، مايونيز ، ثوم ، كبيس ، خس ، درة ، موزريلا</div>
+<div class="ingredients">دجاج مشوي ، مايونيز ، ثوم ، كبيس ، خس ، ذرة ، موزريلا</div>
 <div class="price">5$</div>
 <div class="controls">
 <button onclick="add('شيكن ساب سندويش',5)">➕</button>
@@ -435,7 +497,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>بطاطا سندويش</p>
-<div class="ingredients">ثوم ،كبيس ، سلطة ملفوف ، كتشب</div>
+<div class="ingredients">ثوم ، كبيس ، سلطة ملفوف ، كتشب</div>
 <div class="price">2$</div>
 <div class="controls">
 <button onclick="add('بطاطا سندويش',2)">➕</button>
@@ -446,7 +508,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>شيكن بيستو سندويش</p>
-<div class="ingredients">صوص بيستو ،بايبي شيبس ، دجاج ، موزريلا</div>
+<div class="ingredients">صوص بيستو ، بايبي شيبس ، دجاج ، موزريلا</div>
 <div class="price">5$</div>
 <div class="controls">
 <button onclick="add('شيكن بيستو سندويش',5)">➕</button>
@@ -455,23 +517,23 @@ color:#fff;
 </div>
 
 </section>
-
 <section id="berger" class="menu hidden">
 
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>كلاسيك برغر دجاج</p>
-<div class="ingredients">قطعة دجاج مشوي ,كبيس ,بندورة , جبنة شيدر , صوص مدخن</div>
+<div class="ingredients">قطعة دجاج مشوي، كبيس، بندورة، جبنة شيدر، صوص مدخن</div>
 <div class="price">5$</div>
 <div class="controls">
 <button onclick="add('كلاسيك برغر دجاج',5)">➕</button>
 <button onclick="remove('كلاسيك برغر دجاج')">➖</button>
 </div>
 </div>
+
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>مشروم برغر لحم</p>
-<div class="ingredients">قطعة لحمة , فطر ,موزريلا , خس , صوص مدخن</div>
+<div class="ingredients">قطعة لحمة، فطر، موزريلا، خس، صوص مدخن</div>
 <div class="price">6.5$</div>
 <div class="controls">
 <button onclick="add('مشروم برغر لحم',6.5)">➕</button>
@@ -482,7 +544,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>دوبل زنجر برغر دجاج</p>
-<div class="ingredients">2 قطعة زنجر مقرمشة , موزريلا , خس ,كبيس ,صوص</div>
+<div class="ingredients">2 قطعة زنجر مقرمشة، موزريلا، خس، كبيس، صوص</div>
 <div class="price">8$</div>
 <div class="controls">
 <button onclick="add('دوبل زنجر برغر دجاج',8)">➕</button>
@@ -493,7 +555,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>برغر لبناني لحم</p>
-<div class="ingredients">قطعة لحمة , بندورة , كبيس , بطاطا , مايونيز , كتشب</div>
+<div class="ingredients">قطعة لحمة، بندورة، كبيس، بطاطا، مايونيز، كتشب</div>
 <div class="price">6$</div>
 <div class="controls">
 <button onclick="add('برغر لبناني لحم',6)">➕</button>
@@ -504,7 +566,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>شيزي زنجر برغر دجاج</p>
-<div class="ingredients">زنجر , موزريلا , خس , رانش</div>
+<div class="ingredients">زنجر، موزريلا، خس، رانش</div>
 <div class="price">6$</div>
 <div class="controls">
 <button onclick="add('شيزي زنجر برغر دجاج',6)">➕</button>
@@ -515,7 +577,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>الديك برغر لحم</p>
-<div class="ingredients">لحمة , كبيس , خس , موزريلا , صوص</div>
+<div class="ingredients">لحمة، كبيس، خس، موزريلا، صوص</div>
 <div class="price">6.5$</div>
 <div class="controls">
 <button onclick="add('الديك برغر لحم',6.5)">➕</button>
@@ -526,7 +588,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>جيم برغر دجاج</p>
-<div class="ingredients">دجاج مشوي , خس , كبيس , ثوم</div>
+<div class="ingredients">دجاج مشوي، خس، كبيس، ثوم</div>
 <div class="price">5$</div>
 <div class="controls">
 <button onclick="add('جيم برغر دجاج',5)">➕</button>
@@ -537,7 +599,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>دوبل برغر لحم</p>
-<div class="ingredients">2 لحمة , 2 تشيدر , صوص</div>
+<div class="ingredients">2 لحمة، 2 تشيدر، صوص</div>
 <div class="price">8.5$</div>
 <div class="controls">
 <button onclick="add('دوبل برغر لحم',8.5)">➕</button>
@@ -548,7 +610,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>بوفالو برغر دجاج</p>
-<div class="ingredients">زنجر , بوفالو , خس , رانش</div>
+<div class="ingredients">زنجر، بوفالو، خس، رانش</div>
 <div class="price">6$</div>
 <div class="controls">
 <button onclick="add('بوفالو برغر دجاج',6)">➕</button>
@@ -559,7 +621,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>باربكيو برغر دجاج</p>
-<div class="ingredients">زنجر , باربكيو , خس , تشيدر</div>
+<div class="ingredients">زنجر، باربكيو، خس، تشيدر</div>
 <div class="price">6$</div>
 <div class="controls">
 <button onclick="add('باربكيو برغر دجاج',6)">➕</button>
@@ -574,7 +636,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>وجبة طاووق</p>
-<div class="ingredients">طاووق مشوي , بطاطا , ثوم</div>
+<div class="ingredients">طاووق مشوي، بطاطا، ثوم</div>
 <div class="price">7$</div>
 <div class="controls">
 <button onclick="add('وجبة طاووق',7)">➕</button>
@@ -585,7 +647,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>وجبة دجاج مشوي</p>
-<div class="ingredients">صدر دجاج , بطاطا او رز</div>
+<div class="ingredients">صدر دجاج، بطاطا أو رز</div>
 <div class="price">7$</div>
 <div class="controls">
 <button onclick="add('وجبة دجاج مشوي',7)">➕</button>
@@ -596,7 +658,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>وجبة الديك</p>
-<div class="ingredients">بطاطا , كرسبي , صوصات , شيبس</div>
+<div class="ingredients">بطاطا، كرسبي، صوصات، شيبس</div>
 <div class="price">7$</div>
 <div class="controls">
 <button onclick="add('وجبة الديك',7)">➕</button>
@@ -607,7 +669,7 @@ color:#fff;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>وجبة كرسبي</p>
-<div class="ingredients">5 قطع كرسبي , بطاطا , كولسلو</div>
+<div class="ingredients">5 قطع كرسبي، بطاطا، كولسلو</div>
 <div class="price">8$</div>
 <div class="controls">
 <button onclick="add('وجبة كرسبي',8)">➕</button>
@@ -648,272 +710,216 @@ color:#fff;
 <button onclick="remove('Miranda')">➖</button>
 </div>
 </div>
-
-<div class="dish">
-<img src="assets/images/img1.jpeg">
-<p>Pepsi</p>
-<div class="price">1$</div>
-<div class="controls">
-<button onclick="add('Pepsi',1)">➕</button>
-<button onclick="remove('Pepsi')">➖</button>
-</div>
-</div>
-
-<div class="dish">
-<img src="assets/images/img1.jpeg">
-<p>Water</p>
-<div class="price">0.33$</div>
-<div class="controls">
-<button onclick="add('Water',0.33)">➕</button>
-<button onclick="remove('Water')">➖</button>
-</div>
-</div>
-
-</section>
-
-<div class="cart" id="cart">
-<h2>🛒 السلة</h2>
-
-<div id="items"></div>
-<h3 id="total"></h3>
-
-<input id="name" placeholder="الاسم">
-<input id="phone" placeholder="رقم الهاتف">
-<input id="address" placeholder="العنوان">
-<textarea id="note" placeholder="ملاحظة"></textarea>
-
-<button class="whatsapp" onclick="send()">إرسال واتساب</button>
-<button class="close-btn" onclick="closeCart()">إغلاق</button>
-</div>
-
-<div class="admin-panel" id="adminPanel">
-<h2>لوحة الأدمن</h2>
-
-<input id="a_pass" placeholder="كلمة السر">
-<button onclick="checkAdmin()">دخول</button>
-
-<div id="adminTools" style="display:none;">
-
-<input id="itemName" placeholder="اسم الصنف">
-<input id="itemPrice" placeholder="السعر">
-<input id="itemImg" placeholder="رابط الصورة">
-
-<button class="save-btn" onclick="addItem()">إضافة صنف</button>
-
-<hr>
-
-<input id="oldName" placeholder="اسم الصنف القديم">
-<input id="newName" placeholder="الاسم الجديد">
-<input id="newPrice" placeholder="السعر الجديد">
-
-<button class="save-btn" onclick="editItem()">تعديل صنف</button>
-
-<hr>
-
-<input id="delName" placeholder="اسم الصنف">
-<button class="save-btn" onclick="deleteItem()">حذف صنف</button>
-
-</div>
-
-<button class="close-btn" onclick="closeAdmin()">إغلاق</button>
-</div>
-
-<button class="cart-btn" onclick="openCart()">🛒</button>
-<div class="cart-count" id="count">0</div>
-
-<footer>©️ مطعم الديك</footer>
-
-<script>
+/* ================= CART ================= */
 
 let cart = {};
 
-/* ================= CART ================= */
-
 function add(n,p){
-  if(!cart[n]) cart[n]={q:0,p};
-  cart[n].q++;
-  render();
+if(!cart[n]) cart[n]={q:0,p};
+cart[n].q++;
+render();
 }
 
 function remove(n){
-  if(cart[n]){
-    cart[n].q--;
-    if(cart[n].q<=0) delete cart[n];
-    render();
-  }
+if(cart[n]){
+cart[n].q--;
+if(cart[n].q<=0) delete cart[n];
+render();
+}
 }
 
 function render(){
-  let c=document.getElementById("items");
-  c.innerHTML="";
-  let total=0,count=0;
+let c=document.getElementById("items");
+c.innerHTML="";
 
-  for(let i in cart){
-    total+=cart[i].q*cart[i].p;
-    count+=cart[i].q;
+let total=0;
+let count=0;
 
-    c.innerHTML+=`
-      <div class="cart-item">
-        ${i} x${cart[i].q} = $${cart[i].q*cart[i].p}
-        <button onclick="deleteItemCart('${i}')">حذف</button>
-      </div>
-    `;
-  }
+for(let i in cart){
 
-  document.getElementById("total").innerText="المجموع: $"+total;
-  document.getElementById("count").innerText=count;
+total += cart[i].q * cart[i].p;
+count += cart[i].q;
+
+c.innerHTML += `
+<div class="cart-item">
+<span>${i} x${cart[i].q} = $${cart[i].q * cart[i].p}</span>
+<button onclick="deleteItemCart('${i}')">حذف</button>
+</div>
+`;
+}
+
+document.getElementById("total").innerText="المجموع: $"+total;
+document.getElementById("count").innerText=count;
 }
 
 function deleteItemCart(n){
-  delete cart[n];
-  render();
+delete cart[n];
+render();
 }
 
+/* ================= CART OPEN / CLOSE ================= */
+
 function openCart(){
-  document.getElementById("cart").style.display="block";
-  render();
+document.getElementById("cart").style.display="block";
+render();
 }
 
 function closeCart(){
-  document.getElementById("cart").style.display="none";
+document.getElementById("cart").style.display="none";
 }
 
-/* ================= ORDER ================= */
+/* ================= ORDER SYSTEM ================= */
 
 function send(){
-  if(Object.keys(cart).length===0){
-    alert("السلة فارغة");
-    return;
-  }
 
-  let name=document.getElementById("name").value;
-  let phone=document.getElementById("phone").value;
-  let address=document.getElementById("address").value;
-  let note=document.getElementById("note").value;
+if(Object.keys(cart).length===0){
+alert("السلة فارغة");
+return;
+}
 
-  let text="🛒 طلب جديد%0A%0A";
-  let total=0;
+let phone=document.getElementById("phone").value.trim();
+let name=document.getElementById("name").value;
+let address=document.getElementById("address").value;
+let note=document.getElementById("note").value;
 
-  for(let i in cart){
-    text+=i+" x"+cart[i].q+" = $"+(cart[i].q*cart[i].p)+"%0A";
-    total+=cart[i].q*cart[i].p;
-  }
+if(phone){
+localStorage.setItem("user_"+phone, JSON.stringify({
+name:name,
+address:address,
+note:note
+}));
+}
 
-  text+="%0A💰 المجموع: $"+total;
-  text+="%0A👤 "+name;
-  text+="%0A📞 "+phone;
-  text+="%0A📍 "+address;
-  text+="%0A📝 "+note;
+let text="🛒 طلب جديد%0A%0A";
+let total=0;
 
-  window.open("https://wa.me/96181123217?text="+text,"_blank");
+for(let i in cart){
+text += i+" x"+cart[i].q+" = $"+(cart[i].q*cart[i].p)+"%0A";
+total += cart[i].q*cart[i].p;
+}
 
-  cart={};
-  render();
-  closeCart();
+text += "%0A💰 المجموع: $"+total;
+text += "%0A👤 "+name;
+text += "%0A📞 "+phone;
+text += "%0A📍 "+address;
+text += "%0A📝 "+note;
+
+window.open("https://wa.me/96181123217?text="+text,"_blank");
+
+cart={};
+render();
+closeCart();
 }
 
 /* ================= NAV ================= */
 
 function show(id){
-  document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
-  document.getElementById("welcome").style.display="none";
+document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
+document.getElementById("welcome").style.display="none";
 }
 
 function home(){
-  document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
-  document.getElementById("welcome").style.display="block";
+document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
+document.getElementById("welcome").style.display="block";
 }
 
-/* ================= ADMIN SYSTEM (FULL WORKING) ================= */
+/* ================= ADMIN LOGIN ================= */
 
 function adminLogin(){
-  document.getElementById("adminPanel").style.display="block";
+document.getElementById("adminPanel").style.display="block";
 }
 
 function checkAdmin(){
-  let pass=document.getElementById("a_pass").value;
+let pass=document.getElementById("a_pass").value;
 
-  if(pass==="1234"){
-    document.getElementById("adminTools").style.display="block";
-  }else{
-    alert("كلمة السر خطأ");
-  }
+if(pass==="1234"){
+document.getElementById("adminTools").style.display="block";
+}else{
+alert("كلمة السر خطأ");
+}
 }
 
-/* ADD ITEM */
+/* ================= SEARCH ADMIN ================= */
 
-function addItem(){
-  let name=document.getElementById("itemName").value;
-  let price=document.getElementById("itemPrice").value;
-  let img=document.getElementById("itemImg").value;
+function searchItems(){
 
-  if(!name || !price){
-    alert("املأ البيانات");
-    return;
-  }
+let text=document.getElementById("searchAdmin").value.toLowerCase();
+let items=document.querySelectorAll(".dish");
 
-  let menu=document.querySelector(".menu:not(.hidden)");
+let results=document.getElementById("searchResults");
+results.innerHTML="";
 
-  let div=document.createElement("div");
-  div.className="dish";
+items.forEach(d=>{
 
-  div.innerHTML=`
-    <img src="${img || 'assets/images/img1.jpeg'}">
-    <p>${name}</p>
-    <div class="ingredients">مضاف من الأدمن</div>
-    <div class="price">${price}$</div>
-    <div class="controls">
-      <button onclick="add('${name}',${price})">➕</button>
-      <button onclick="remove('${name}')">➖</button>
-    </div>
-  `;
+let name=d.querySelector("p").innerText;
 
-  menu.appendChild(div);
+if(name.toLowerCase().includes(text)){
 
-  alert("تمت الإضافة");
+results.innerHTML += `
+<div class="search-item">
+<span>${name}</span>
+
+<div class="search-actions">
+<button class="edit-btn" onclick="quickEdit('${name}')">تعديل</button>
+<button class="delete-btn" onclick="quickDelete('${name}')">حذف</button>
+</div>
+
+</div>
+`;
+
 }
 
-/* EDIT ITEM */
+});
 
-function editItem(){
-  let oldName=document.getElementById("oldName").value;
-  let newName=document.getElementById("newName").value;
-  let newPrice=document.getElementById("newPrice").value;
-
-  let items=document.querySelectorAll(".dish");
-
-  items.forEach(d=>{
-    if(d.innerText.includes(oldName)){
-      if(newName) d.querySelector("p").innerText=newName;
-      if(newPrice) d.querySelector(".price").innerText=newPrice+"$";
-    }
-  });
-
-  alert("تم التعديل");
 }
 
-/* DELETE ITEM */
+/* ================= QUICK DELETE ================= */
 
-function deleteItem(){
-  let name=document.getElementById("delName").value;
+function quickDelete(name){
 
-  let items=document.querySelectorAll(".dish");
+document.querySelectorAll(".dish").forEach(d=>{
+if(d.querySelector("p").innerText === name){
+d.remove();
+}
+});
 
-  items.forEach(d=>{
-    if(d.innerText.includes(name)){
-      d.remove();
-    }
-  });
-
-  alert("تم الحذف");
+searchItems();
 }
 
-function closeAdmin(){
-  document.getElementById("adminPanel").style.display="none";
+/* ================= QUICK EDIT ================= */
+
+function quickEdit(name){
+
+let newName = prompt("الاسم الجديد", name);
+let newPrice = prompt("السعر الجديد");
+
+document.querySelectorAll(".dish").forEach(d=>{
+if(d.querySelector("p").innerText === name){
+
+if(newName) d.querySelector("p").innerText=newName;
+if(newPrice) d.querySelector(".price").innerText=newPrice+"$";
+
+}
+});
+
+searchItems();
 }
 
-</script>
+/* ================= USER AUTO LOAD ================= */
 
-</body>
-</html>
+function loadUserData(){
+
+let phone=document.getElementById("phone").value.trim();
+if(phone.length < 6) return;
+
+let data=localStorage.getItem("user_"+phone);
+
+if(data){
+data=JSON.parse(data);
+
+document.getElementById("name").value=data.name || "";
+document.getElementById("address").value=data.address || "";
+document.getElementById("note").value=data.note || "";
+}
+}
