@@ -242,6 +242,97 @@ color:#ff6a00;
 padding:10px;
 margin-top:20px;
 }
+  <!-- ضع هذا التعديل داخل الكود الحالي -->
+
+<!-- داخل <style> أضف في آخر ملف CSS -->
+
+<style>
+
+/* تحسين نسخة اللابتوب */
+body{
+max-width:1400px;
+margin:auto;
+}
+
+@media(min-width:900px){
+
+header,
+nav,
+#welcome,
+.menu,
+footer{
+max-width:1200px;
+margin:auto;
+}
+
+.menu{
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+padding:30px;
+}
+
+.dish img{
+height:180px;
+}
+
+#welcome img{
+max-width:600px;
+}
+
+nav button{
+padding:12px 22px;
+font-size:16px;
+}
+
+}
+
+/* لوحة أدمن احترافية */
+
+.admin-panel{
+background:#101010;
+}
+
+.admin-box{
+background:#181818;
+padding:15px;
+border-radius:15px;
+margin-top:15px;
+}
+
+.search-results{
+margin-top:10px;
+text-align:right;
+}
+
+.search-item{
+background:#1d1d1d;
+padding:10px;
+margin:8px 0;
+border-radius:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+}
+
+.search-item button{
+padding:6px 10px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.delete-btn{
+background:#ff2d2d;
+color:#fff;
+}
+
+.edit-btn{
+background:#ff6a00;
+color:#fff;
+}
+
+</style>
 </style>
 </head>
 
