@@ -14,12 +14,12 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:'Cairo',sans-serif;
 }
 
 body{
-font-family:'Cairo',sans-serif;
-color:#fff;
 background:url('5f099691-9a86-4815-b501-8396c9704fb8.jpeg') center/cover fixed;
+color:#fff;
 min-height:100vh;
 }
 
@@ -27,11 +27,11 @@ body::before{
 content:"";
 position:fixed;
 inset:0;
-background:rgba(0,0,0,.78);
+background:rgba(0,0,0,0.78);
 z-index:-1;
 }
 
-/* ================= LAYOUT ================= */
+/* ===== WRAPPER ===== */
 
 .wrapper{
 max-width:1200px;
@@ -39,39 +39,39 @@ margin:auto;
 padding:10px;
 }
 
-/* ================= HEADER ================= */
+/* ===== HEADER ===== */
 
 header{
 text-align:center;
 padding:15px;
 }
 
-.main-logo{
+header img{
 width:220px;
-filter:drop-shadow(0 0 10px rgba(255,80,0,.3));
+filter:drop-shadow(0 0 10px #ff6a00);
 }
 
-/* ================= NAV ================= */
+/* ===== NAV ===== */
 
 nav{
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
 gap:10px;
-padding:10px;
+margin:10px 0;
 }
 
 nav button{
 background:#111;
-color:#ff6a00;
 border:1px solid #ff6a00;
-padding:10px 16px;
+color:#ff6a00;
+padding:10px 15px;
 border-radius:25px;
 cursor:pointer;
 font-weight:bold;
 }
 
-/* ================= WELCOME ================= */
+/* ===== WELCOME ===== */
 
 #welcome{
 text-align:center;
@@ -90,30 +90,13 @@ color:#ffcc80;
 font-weight:bold;
 }
 
-/* ================= SOCIAL ================= */
-
-.social{
-display:flex;
-justify-content:center;
-gap:10px;
-margin-top:10px;
-}
-
-.social a{
-background:#ff6a00;
-padding:8px 14px;
-border-radius:20px;
-color:#fff;
-text-decoration:none;
-}
-
-/* ================= MENU ================= */
+/* ===== MENU ===== */
 
 .menu{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:15px;
-padding:15px;
+padding:10px;
 }
 
 .menu.hidden{
@@ -140,8 +123,8 @@ color:#ffd7a0;
 
 .ingredients{
 font-size:12px;
-color:#ccc;
 padding:0 8px;
+color:#ccc;
 }
 
 .price{
@@ -150,7 +133,7 @@ color:#ffb86b;
 font-weight:bold;
 }
 
-/* ================= BUTTONS ================= */
+/* ===== BUTTONS ===== */
 
 .controls{
 display:flex;
@@ -162,22 +145,22 @@ padding:10px;
 .controls button{
 background:#ff6a00;
 border:none;
+color:#fff;
 padding:6px 10px;
 border-radius:6px;
-color:#fff;
 cursor:pointer;
 }
 
-/* ================= CART ================= */
+/* ===== CART ===== */
 
 .cart-btn{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#ff6a00;
+border:none;
 padding:15px;
 border-radius:50%;
-border:none;
 cursor:pointer;
 }
 
@@ -190,26 +173,27 @@ width:22px;
 height:22px;
 border-radius:50%;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 font-size:12px;
 }
 
-/* ================= ADMIN ================= */
+/* ===== ADMIN ===== */
 
 .admin-btn{
 position:fixed;
 left:15px;
 bottom:20px;
 background:#111;
-color:#ff6a00;
 border:1px solid #ff6a00;
+color:#ff6a00;
 padding:10px;
 border-radius:20px;
 cursor:pointer;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -217,7 +201,7 @@ cursor:pointer;
 <div class="wrapper">
 
 <header>
-<img class="main-logo" src="23FA8AAA-C7ED-4683-80E8-2D1F1225B0B8.png">
+<img src="23FA8AAA-C7ED-4683-80E8-2D1F1225B0B8.png">
 </header>
 
 <nav>
@@ -231,14 +215,9 @@ cursor:pointer;
 <section id="welcome">
 <img src="a0267957-a390-43ef-bbf3-a82ca2293688.jpeg">
 <p>✦ عند الديك وقف إذا فيك ✦</p>
-
-<div class="social">
-<a href="#">Instagram</a>
-<a href="#">TikTok</a>
-</div>
 </section>
 
-<button class="admin-btn" onclick="adminLogin()">ADMIN</button>
+<button class="admin-btn" onclick="openAdmin()">ADMIN</button>
 <button class="cart-btn" onclick="openCart()">🛒</button>
 <div class="cart-count" id="count">0</div>
 <!-- ================= SANDWICH ================= -->
@@ -325,7 +304,7 @@ cursor:pointer;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>شيكن بيستو سندويش</p>
-<div class="ingredients">صوص بيستو، بايبي شيبس، دجاج، موزريلا</div>
+<div class="ingredients">صوص بيستو، دجاج، موزريلا</div>
 <div class="price">5$</div>
 <div class="controls">
 <button onclick="add('شيكن بيستو سندويش',5)">➕</button>
@@ -363,7 +342,7 @@ cursor:pointer;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>دوبل زنجر برغر دجاج</p>
-<div class="ingredients">2 قطعة زنجر، موزريلا، خس، كبيس، صوص</div>
+<div class="ingredients">2 زنجر، موزريلا، خس، كبيس، صوص</div>
 <div class="price">8$</div>
 <div class="controls">
 <button onclick="add('دوبل زنجر برغر دجاج',8)">➕</button>
@@ -374,7 +353,7 @@ cursor:pointer;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>برغر لبناني لحم</p>
-<div class="ingredients">قطعة لحمة، بندورة، كبيس، بطاطا، مايونيز، كتشب</div>
+<div class="ingredients">لحمة، بندورة، كبيس، بطاطا، مايونيز، كتشب</div>
 <div class="price">6$</div>
 <div class="controls">
 <button onclick="add('برغر لبناني لحم',6)">➕</button>
@@ -384,19 +363,19 @@ cursor:pointer;
 
 <div class="dish">
 <img src="assets/images/img1.jpeg">
-<p>شيزي زنجر برغر دجاج</p>
-<div class="ingredients">زنجر، موزريلا، خس، رانش</div>
+<p>شيزي زنجر برغر</p>
+<div class="ingredients">زنجر، موزريلا، رانش، خس</div>
 <div class="price">6$</div>
 <div class="controls">
-<button onclick="add('شيزي زنجر برغر دجاج',6)">➕</button>
-<button onclick="remove('شيزي زنجر برغر دجاج')">➖</button>
+<button onclick="add('شيزي زنجر برغر',6)">➕</button>
+<button onclick="remove('شيزي زنجر برغر')">➖</button>
 </div>
 </div>
 
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>الديك برغر لحم</p>
-<div class="ingredients">لحمة، كبيس، خس، موزريلا، صوص</div>
+<div class="ingredients">لحمة، موزريلا، خس، كبيس، صوص</div>
 <div class="price">6.5$</div>
 <div class="controls">
 <button onclick="add('الديك برغر لحم',6.5)">➕</button>
@@ -578,6 +557,11 @@ renderCart();
 function renderCart(){
 
 let items = document.getElementById("items");
+let totalBox = document.getElementById("total");
+let countBox = document.getElementById("count");
+
+if(!items || !totalBox || !countBox) return;
+
 items.innerHTML = "";
 
 let total = 0;
@@ -596,14 +580,16 @@ items.innerHTML += `
 `;
 }
 
-document.getElementById("total").innerText = "المجموع: $" + total.toFixed(2);
-document.getElementById("count").innerText = count;
+totalBox.innerText = "المجموع: $" + total.toFixed(2);
+countBox.innerText = count;
 }
 
 function deleteItemCart(name){
 delete cart[name];
 renderCart();
 }
+
+/* ================= CART OPEN / CLOSE ================= */
 
 function openCart(){
 document.getElementById("cart").style.display = "block";
@@ -614,7 +600,7 @@ function closeCart(){
 document.getElementById("cart").style.display = "none";
 }
 
-/* ================= ORDER ================= */
+/* ================= ORDER (WHATSAPP) ================= */
 
 function send(){
 
@@ -623,8 +609,8 @@ alert("السلة فارغة");
 return;
 }
 
-let phone = document.getElementById("phone").value.trim();
 let name = document.getElementById("name").value;
+let phone = document.getElementById("phone").value;
 let address = document.getElementById("address").value;
 let note = document.getElementById("note").value;
 
@@ -658,12 +644,11 @@ renderCart();
 closeCart();
 }
 
-/* ================= AUTO USER LOAD ================= */
+/* ================= AUTO FILL USER ================= */
 
 function loadUserData(){
 
 let phone = document.getElementById("phone").value.trim();
-
 if(phone.length < 6) return;
 
 let data = localStorage.getItem("user_" + phone);
@@ -690,13 +675,18 @@ document.querySelectorAll(".menu").forEach(m => m.classList.add("hidden"));
 document.getElementById("welcome").style.display = "block";
 }
 
-/* ================= ADMIN PANEL ================= */
+/* ================= ADMIN ================= */
 
-function adminLogin(){
+function openAdmin(){
 document.getElementById("adminPanel").style.display = "block";
 }
 
+function closeAdmin(){
+document.getElementById("adminPanel").style.display = "none";
+}
+
 function checkAdmin(){
+
 let pass = document.getElementById("a_pass").value;
 
 if(pass === "1234"){
@@ -704,6 +694,7 @@ document.getElementById("adminTools").style.display = "block";
 }else{
 alert("كلمة السر خطأ");
 }
+
 }
 
 /* ================= SEARCH ADMIN ================= */
@@ -711,24 +702,23 @@ alert("كلمة السر خطأ");
 function searchItems(){
 
 let text = document.getElementById("searchAdmin").value.toLowerCase();
-let dishes = document.querySelectorAll(".dish");
-
 let result = document.getElementById("searchResults");
+
+if(!result) return;
+
 result.innerHTML = "";
 
-dishes.forEach(d => {
+document.querySelectorAll(".dish").forEach(d => {
 
 let name = d.querySelector("p").innerText;
 
 if(name.toLowerCase().includes(text)){
 
 result.innerHTML += `
-<div class="search-item">
-<span>${name}</span>
-<div class="search-actions">
-<button class="edit-btn" onclick="quickEdit('${name}')">تعديل</button>
-<button class="delete-btn" onclick="quickDelete('${name}')">حذف</button>
-</div>
+<div style="background:#222;padding:10px;margin:5px;border-radius:10px">
+${name}
+<button onclick="quickEdit('${name}')">تعديل</button>
+<button onclick="quickDelete('${name}')">حذف</button>
 </div>
 `;
 
@@ -738,6 +728,27 @@ result.innerHTML += `
 
 }
 
+/* ================= QUICK EDIT ================= */
+
+function quickEdit(name){
+
+let newName = prompt("اسم جديد:", name);
+let newPrice = prompt("سعر جديد:");
+
+document.querySelectorAll(".dish").forEach(d => {
+
+if(d.querySelector("p").innerText === name){
+
+if(newName) d.querySelector("p").innerText = newName;
+if(newPrice) d.querySelector(".price").innerText = newPrice + "$";
+
+}
+
+});
+
+searchItems();
+}
+
 /* ================= QUICK DELETE ================= */
 
 function quickDelete(name){
@@ -745,25 +756,6 @@ function quickDelete(name){
 document.querySelectorAll(".dish").forEach(d => {
 if(d.querySelector("p").innerText === name){
 d.remove();
-}
-});
-
-searchItems();
-}
-
-/* ================= QUICK EDIT ================= */
-
-function quickEdit(name){
-
-let newName = prompt("الاسم الجديد", name);
-let newPrice = prompt("السعر الجديد");
-
-document.querySelectorAll(".dish").forEach(d => {
-if(d.querySelector("p").innerText === name){
-
-if(newName) d.querySelector("p").innerText = newName;
-if(newPrice) d.querySelector(".price").innerText = newPrice + "$";
-
 }
 });
 
