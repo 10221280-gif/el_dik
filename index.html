@@ -710,7 +710,9 @@ cursor:pointer;
 <button onclick="remove('Miranda')">➖</button>
 </div>
 </div>
-/* ================= CART ================= */
+<script>
+
+/* ================= CART SYSTEM ================= */
 
 let cart = {};
 
@@ -742,13 +744,13 @@ count += cart[i].q;
 
 c.innerHTML += `
 <div class="cart-item">
-<span>${i} x${cart[i].q} = $${cart[i].q * cart[i].p}</span>
+<span>${i} x${cart[i].q} = $${(cart[i].q * cart[i].p).toFixed(2)}</span>
 <button onclick="deleteItemCart('${i}')">حذف</button>
 </div>
 `;
 }
 
-document.getElementById("total").innerText="المجموع: $"+total;
+document.getElementById("total").innerText="المجموع: $"+total.toFixed(2);
 document.getElementById("count").innerText=count;
 }
 
@@ -782,6 +784,7 @@ let name=document.getElementById("name").value;
 let address=document.getElementById("address").value;
 let note=document.getElementById("note").value;
 
+/* حفظ بيانات الزبون */
 if(phone){
 localStorage.setItem("user_"+phone, JSON.stringify({
 name:name,
@@ -794,11 +797,11 @@ let text="🛒 طلب جديد%0A%0A";
 let total=0;
 
 for(let i in cart){
-text += i+" x"+cart[i].q+" = $"+(cart[i].q*cart[i].p)+"%0A";
+text += i+" x"+cart[i].q+" = $"+(cart[i].q*cart[i].p).toFixed(2)+"%0A";
 total += cart[i].q*cart[i].p;
 }
 
-text += "%0A💰 المجموع: $"+total;
+text += "%0A💰 المجموع: $"+total.toFixed(2);
 text += "%0A👤 "+name;
 text += "%0A📞 "+phone;
 text += "%0A📍 "+address;
@@ -824,7 +827,7 @@ document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
 document.getElementById("welcome").style.display="block";
 }
 
-/* ================= ADMIN LOGIN ================= */
+/* ================= ADMIN ================= */
 
 function adminLogin(){
 document.getElementById("adminPanel").style.display="block";
@@ -840,7 +843,7 @@ alert("كلمة السر خطأ");
 }
 }
 
-/* ================= SEARCH ADMIN ================= */
+/* ================= SEARCH ================= */
 
 function searchItems(){
 
@@ -897,8 +900,8 @@ let newPrice = prompt("السعر الجديد");
 document.querySelectorAll(".dish").forEach(d=>{
 if(d.querySelector("p").innerText === name){
 
-if(newName) d.querySelector("p").innerText=newName;
-if(newPrice) d.querySelector(".price").innerText=newPrice+"$";
+if(newName) d.querySelector("p").innerText = newName;
+if(newPrice) d.querySelector(".price").innerText = newPrice + "$";
 
 }
 });
@@ -906,11 +909,12 @@ if(newPrice) d.querySelector(".price").innerText=newPrice+"$";
 searchItems();
 }
 
-/* ================= USER AUTO LOAD ================= */
+/* ================= AUTO USER LOAD ================= */
 
 function loadUserData(){
 
 let phone=document.getElementById("phone").value.trim();
+
 if(phone.length < 6) return;
 
 let data=localStorage.getItem("user_"+phone);
@@ -918,8 +922,10 @@ let data=localStorage.getItem("user_"+phone);
 if(data){
 data=JSON.parse(data);
 
-document.getElementById("name").value=data.name || "";
-document.getElementById("address").value=data.address || "";
-document.getElementById("note").value=data.note || "";
+document.getElementById("name").value = data.name || "";
+document.getElementById("address").value = data.address || "";
+document.getElementById("note").value = data.note || "";
 }
 }
+
+</script>
