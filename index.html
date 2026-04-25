@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -18,10 +19,8 @@ box-sizing:border-box;
 body{
 font-family:'Cairo',sans-serif;
 color:#fff;
-text-align:center;
 background:url('5f099691-9a86-4815-b501-8396c9704fb8.jpeg') center/cover fixed;
-max-width:1600px;
-margin:auto;
+min-height:100vh;
 }
 
 body::before{
@@ -32,88 +31,89 @@ background:rgba(0,0,0,.78);
 z-index:-1;
 }
 
-header{
-padding:18px 15px 8px;
+/* ================= LAYOUT ================= */
+
+.wrapper{
+max-width:1200px;
+margin:auto;
+padding:10px;
 }
 
-.logo{
-display:flex;
-justify-content:center;
-align-items:center;
-margin-top:10px;
+/* ================= HEADER ================= */
+
+header{
+text-align:center;
+padding:15px;
 }
 
 .main-logo{
-width:250px;
-height:auto;
-mix-blend-mode:lighten;
-opacity:.95;
-filter:drop-shadow(0 0 12px rgba(255,80,0,.25));
+width:220px;
+filter:drop-shadow(0 0 10px rgba(255,80,0,.3));
 }
 
+/* ================= NAV ================= */
+
 nav{
-margin:8px 10px 15px;
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
 gap:10px;
+padding:10px;
 }
 
 nav button{
 background:#111;
 color:#ff6a00;
 border:1px solid #ff6a00;
-padding:10px 18px;
-border-radius:30px;
+padding:10px 16px;
+border-radius:25px;
 cursor:pointer;
-font-weight:700;
-font-size:15px;
+font-weight:bold;
 }
 
+/* ================= WELCOME ================= */
+
 #welcome{
+text-align:center;
 padding:20px;
-max-width:1200px;
-margin:auto;
 }
 
 #welcome img{
-width:90%;
-max-width:500px;
-border-radius:20px;
-box-shadow:0 0 20px rgba(255,100,0,.5);
+width:100%;
+max-width:450px;
+border-radius:15px;
 }
 
 #welcome p{
-margin-top:15px;
-font-weight:bold;
+margin-top:10px;
 color:#ffcc80;
-font-size:18px;
+font-weight:bold;
 }
+
+/* ================= SOCIAL ================= */
 
 .social{
 display:flex;
 justify-content:center;
 gap:10px;
-flex-wrap:wrap;
-margin-top:15px;
+margin-top:10px;
 }
 
 .social a{
 background:#ff6a00;
+padding:8px 14px;
+border-radius:20px;
 color:#fff;
 text-decoration:none;
-padding:10px 16px;
-border-radius:30px;
-font-weight:bold;
 }
+
+/* ================= MENU ================= */
 
 .menu{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:15px;
-padding:20px;
-max-width:1300px;
-margin:auto;
+padding:15px;
 }
 
 .menu.hidden{
@@ -122,14 +122,8 @@ display:none;
 
 .dish{
 background:#151515;
-border-radius:15px;
+border-radius:12px;
 overflow:hidden;
-box-shadow:0 0 10px rgba(255,100,0,.3);
-transition:.3s;
-}
-
-.dish:hover{
-transform:translateY(-4px);
 }
 
 .dish img{
@@ -139,25 +133,24 @@ object-fit:cover;
 }
 
 .dish p{
-padding:10px 10px 4px;
-color:#ffd7a0;
+padding:8px;
 font-weight:bold;
-font-size:16px;
+color:#ffd7a0;
 }
 
 .ingredients{
 font-size:12px;
-color:#cfcfcf;
-padding:0 10px 6px;
-min-height:40px;
+color:#ccc;
+padding:0 8px;
 }
 
 .price{
+padding:5px 8px;
 color:#ffb86b;
-font-size:14px;
-padding-bottom:5px;
 font-weight:bold;
 }
+
+/* ================= BUTTONS ================= */
 
 .controls{
 display:flex;
@@ -170,24 +163,22 @@ padding:10px;
 background:#ff6a00;
 border:none;
 padding:6px 10px;
-border-radius:8px;
-cursor:pointer;
-font-weight:bold;
+border-radius:6px;
 color:#fff;
+cursor:pointer;
 }
+
+/* ================= CART ================= */
 
 .cart-btn{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#ff6a00;
-border:none;
 padding:15px;
 border-radius:50%;
-font-size:18px;
+border:none;
 cursor:pointer;
-z-index:999;
-color:#fff;
 }
 
 .cart-count{
@@ -199,12 +190,12 @@ width:22px;
 height:22px;
 border-radius:50%;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 font-size:12px;
-font-weight:bold;
-z-index:999;
 }
+
+/* ================= ADMIN ================= */
 
 .admin-btn{
 position:fixed;
@@ -213,185 +204,8 @@ bottom:20px;
 background:#111;
 color:#ff6a00;
 border:1px solid #ff6a00;
-padding:10px 12px;
-border-radius:25px;
-font-size:12px;
-cursor:pointer;
-z-index:999;
-}
-
-.cart,
-.admin-panel{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#0f0f0f;
-display:none;
-padding:20px;
-overflow:auto;
-z-index:9999;
-}
-
-input,
-textarea{
-width:100%;
-padding:12px;
-margin:6px 0;
-border:none;
-border-radius:8px;
-font-family:'Cairo',sans-serif;
-}
-
-button{
-font-family:'Cairo',sans-serif;
-}
-
-.whatsapp,
-.save-btn{
-background:#25D366;
-color:#fff;
-border:none;
-padding:15px;
-width:100%;
-border-radius:30px;
-margin-top:10px;
-cursor:pointer;
-font-weight:bold;
-}
-
-.close-btn{
-background:#333;
-color:#fff;
-border:none;
-padding:15px;
-width:100%;
-border-radius:30px;
-margin-top:10px;
-cursor:pointer;
-}
-
-footer{
-background:#111;
-color:#ff6a00;
 padding:10px;
-margin-top:20px;
-}
-
-@media(min-width:900px){
-
-.menu{
-grid-template-columns:repeat(4,1fr);
-gap:22px;
-}
-
-.dish img{
-height:190px;
-}
-
-nav button{
-padding:12px 22px;
-font-size:16px;
-}
-
-#welcome img{
-max-width:650px;
-}
-
-}
-
-@media(max-width:600px){
-
-.menu{
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-padding:12px;
-}
-
-.dish img{
-height:130px;
-}
-
-}
-  .admin-panel{
-background:#111;
-}
-
-.admin-box{
-background:#1a1a1a;
-padding:15px;
-border-radius:15px;
-margin:15px 0;
-text-align:right;
-}
-
-.admin-box h3{
-margin-bottom:10px;
-color:#ff6a00;
-}
-
-.search-results{
-margin-top:10px;
-}
-
-.search-item{
-background:#222;
-padding:10px;
-border-radius:10px;
-margin-bottom:8px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-}
-
-.search-item span{
-font-size:14px;
-font-weight:bold;
-color:#fff;
-}
-
-.search-actions{
-display:flex;
-gap:8px;
-}
-
-.edit-btn{
-background:#ff6a00;
-border:none;
-padding:7px 12px;
-border-radius:8px;
-color:#fff;
-cursor:pointer;
-}
-
-.delete-btn{
-background:#ff2e2e;
-border:none;
-padding:7px 12px;
-border-radius:8px;
-color:#fff;
-cursor:pointer;
-}
-
-.cart-item{
-background:#1b1b1b;
-padding:10px;
-border-radius:10px;
-margin-bottom:8px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px;
-}
-
-.cart-item button{
-background:#ff2d2d;
-border:none;
-color:#fff;
-padding:6px 10px;
-border-radius:8px;
+border-radius:20px;
 cursor:pointer;
 }
 
@@ -400,17 +214,17 @@ cursor:pointer;
 
 <body>
 
+<div class="wrapper">
+
 <header>
-<div class="logo">
-<img src="23FA8AAA-C7ED-4683-80E8-2D1F1225B0B8.png" class="main-logo">
-</div>
+<img class="main-logo" src="23FA8AAA-C7ED-4683-80E8-2D1F1225B0B8.png">
 </header>
 
 <nav>
 <button onclick="show('sandwich')">السندويش</button>
 <button onclick="show('berger')">برغر</button>
-<button onclick="show('سناك')">سناك</button>
-<button onclick="show('عصير')">عصير</button>
+<button onclick="show('snack')">سناك</button>
+<button onclick="show('drink')">عصير</button>
 <button onclick="home()">الرئيسية</button>
 </nav>
 
@@ -419,19 +233,22 @@ cursor:pointer;
 <p>✦ عند الديك وقف إذا فيك ✦</p>
 
 <div class="social">
-<a target="_blank" href="https://www.instagram.com/el.deek.lb">Instagram</a>
-<a target="_blank" href="https://www.tiktok.com/@el.deek.lb">TikTok</a>
+<a href="#">Instagram</a>
+<a href="#">TikTok</a>
 </div>
 </section>
 
 <button class="admin-btn" onclick="adminLogin()">ADMIN</button>
+<button class="cart-btn" onclick="openCart()">🛒</button>
+<div class="cart-count" id="count">0</div>
+<!-- ================= SANDWICH ================= -->
 
 <section id="sandwich" class="menu hidden">
 
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>كرسبي سندويش</p>
-<div class="ingredients">دجاج كرسبي ، بطاطا، توم، كبيس ، ملفوف ، كتشب</div>
+<div class="ingredients">دجاج كرسبي، بطاطا، توم، كبيس، ملفوف، كتشب</div>
 <div class="price">4.5$</div>
 <div class="controls">
 <button onclick="add('كرسبي سندويش',4.5)">➕</button>
@@ -442,7 +259,7 @@ cursor:pointer;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>فاهيتا</p>
-<div class="ingredients">دجاج متبل، بصل ، فليفلة، موزريلا، صوص افوكا</div>
+<div class="ingredients">دجاج متبل، بصل، فليفلة، موزريلا، صوص افوكا</div>
 <div class="price">7$</div>
 <div class="controls">
 <button onclick="add('فاهيتا',7)">➕</button>
@@ -453,7 +270,7 @@ cursor:pointer;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>بيكاسو سندويش</p>
-<div class="ingredients">دجاج مشوي، موزريلا ، خس ، كبيس ، طماطم ، صوص</div>
+<div class="ingredients">دجاج مشوي، موزريلا، خس، كبيس، طماطم، صوص</div>
 <div class="price">5$</div>
 <div class="controls">
 <button onclick="add('بيكاسو سندويش',5)">➕</button>
@@ -475,7 +292,7 @@ cursor:pointer;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>طاووق سندويش</p>
-<div class="ingredients">طاووق مشوي ، بطاطا ، ثوم ، كبيس</div>
+<div class="ingredients">طاووق مشوي، بطاطا، ثوم، كبيس</div>
 <div class="price">4.5$</div>
 <div class="controls">
 <button onclick="add('طاووق سندويش',4.5)">➕</button>
@@ -486,7 +303,7 @@ cursor:pointer;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>شيكن ساب سندويش</p>
-<div class="ingredients">دجاج مشوي ، مايونيز ، ثوم ، كبيس ، خس ، ذرة ، موزريلا</div>
+<div class="ingredients">دجاج مشوي، مايونيز، ثوم، كبيس، خس، ذرة، موزريلا</div>
 <div class="price">5$</div>
 <div class="controls">
 <button onclick="add('شيكن ساب سندويش',5)">➕</button>
@@ -497,7 +314,7 @@ cursor:pointer;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>بطاطا سندويش</p>
-<div class="ingredients">ثوم ، كبيس ، سلطة ملفوف ، كتشب</div>
+<div class="ingredients">ثوم، كبيس، سلطة ملفوف، كتشب</div>
 <div class="price">2$</div>
 <div class="controls">
 <button onclick="add('بطاطا سندويش',2)">➕</button>
@@ -508,7 +325,7 @@ cursor:pointer;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>شيكن بيستو سندويش</p>
-<div class="ingredients">صوص بيستو ، بايبي شيبس ، دجاج ، موزريلا</div>
+<div class="ingredients">صوص بيستو، بايبي شيبس، دجاج، موزريلا</div>
 <div class="price">5$</div>
 <div class="controls">
 <button onclick="add('شيكن بيستو سندويش',5)">➕</button>
@@ -517,6 +334,8 @@ cursor:pointer;
 </div>
 
 </section>
+<!-- ================= BURGER ================= -->
+
 <section id="berger" class="menu hidden">
 
 <div class="dish">
@@ -544,7 +363,7 @@ cursor:pointer;
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>دوبل زنجر برغر دجاج</p>
-<div class="ingredients">2 قطعة زنجر مقرمشة، موزريلا، خس، كبيس، صوص</div>
+<div class="ingredients">2 قطعة زنجر، موزريلا، خس، كبيس، صوص</div>
 <div class="price">8$</div>
 <div class="controls">
 <button onclick="add('دوبل زنجر برغر دجاج',8)">➕</button>
@@ -631,7 +450,9 @@ cursor:pointer;
 
 </section>
 
-<section id="سناك" class="menu hidden">
+<!-- ================= SNACK ================= -->
+
+<section id="snack" class="menu hidden">
 
 <div class="dish">
 <img src="assets/images/img1.jpeg">
@@ -679,7 +500,9 @@ cursor:pointer;
 
 </section>
 
-<section id="عصير" class="menu hidden">
+<!-- ================= DRINKS ================= -->
+
+<section id="drink" class="menu hidden">
 
 <div class="dish">
 <img src="assets/images/img1.jpeg">
@@ -710,39 +533,62 @@ cursor:pointer;
 <button onclick="remove('Miranda')">➖</button>
 </div>
 </div>
+
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>Pepsi</p>
+<div class="price">1$</div>
+<div class="controls">
+<button onclick="add('Pepsi',1)">➕</button>
+<button onclick="remove('Pepsi')">➖</button>
+</div>
+</div>
+
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>Water</p>
+<div class="price">0.33$</div>
+<div class="controls">
+<button onclick="add('Water',0.33)">➕</button>
+<button onclick="remove('Water')">➖</button>
+</div>
+</div>
+
+</section>
 <script>
 
-/* ================= CART SYSTEM ================= */
+/* ================= CART ================= */
 
 let cart = {};
 
-function add(n,p){
-if(!cart[n]) cart[n]={q:0,p};
-cart[n].q++;
-render();
+function add(name, price){
+if(!cart[name]) cart[name] = {q:0, p:price};
+cart[name].q++;
+renderCart();
 }
 
-function remove(n){
-if(cart[n]){
-cart[n].q--;
-if(cart[n].q<=0) delete cart[n];
-render();
+function remove(name){
+if(cart[name]){
+cart[name].q--;
+if(cart[name].q <= 0) delete cart[name];
+renderCart();
 }
 }
 
-function render(){
-let c=document.getElementById("items");
-c.innerHTML="";
+function renderCart(){
 
-let total=0;
-let count=0;
+let items = document.getElementById("items");
+items.innerHTML = "";
+
+let total = 0;
+let count = 0;
 
 for(let i in cart){
 
 total += cart[i].q * cart[i].p;
 count += cart[i].q;
 
-c.innerHTML += `
+items.innerHTML += `
 <div class="cart-item">
 <span>${i} x${cart[i].q} = $${(cart[i].q * cart[i].p).toFixed(2)}</span>
 <button onclick="deleteItemCart('${i}')">حذف</button>
@@ -750,124 +596,139 @@ c.innerHTML += `
 `;
 }
 
-document.getElementById("total").innerText="المجموع: $"+total.toFixed(2);
-document.getElementById("count").innerText=count;
+document.getElementById("total").innerText = "المجموع: $" + total.toFixed(2);
+document.getElementById("count").innerText = count;
 }
 
-function deleteItemCart(n){
-delete cart[n];
-render();
+function deleteItemCart(name){
+delete cart[name];
+renderCart();
 }
-
-/* ================= CART OPEN / CLOSE ================= */
 
 function openCart(){
-document.getElementById("cart").style.display="block";
-render();
+document.getElementById("cart").style.display = "block";
+renderCart();
 }
 
 function closeCart(){
-document.getElementById("cart").style.display="none";
+document.getElementById("cart").style.display = "none";
 }
 
-/* ================= ORDER SYSTEM ================= */
+/* ================= ORDER ================= */
 
 function send(){
 
-if(Object.keys(cart).length===0){
+if(Object.keys(cart).length === 0){
 alert("السلة فارغة");
 return;
 }
 
-let phone=document.getElementById("phone").value.trim();
-let name=document.getElementById("name").value;
-let address=document.getElementById("address").value;
-let note=document.getElementById("note").value;
+let phone = document.getElementById("phone").value.trim();
+let name = document.getElementById("name").value;
+let address = document.getElementById("address").value;
+let note = document.getElementById("note").value;
 
 /* حفظ بيانات الزبون */
 if(phone){
-localStorage.setItem("user_"+phone, JSON.stringify({
+localStorage.setItem("user_" + phone, JSON.stringify({
 name:name,
 address:address,
 note:note
 }));
 }
 
-let text="🛒 طلب جديد%0A%0A";
-let total=0;
+let text = "🛒 طلب جديد%0A%0A";
+let total = 0;
 
 for(let i in cart){
-text += i+" x"+cart[i].q+" = $"+(cart[i].q*cart[i].p).toFixed(2)+"%0A";
-total += cart[i].q*cart[i].p;
+text += i + " x" + cart[i].q + " = $" + (cart[i].q * cart[i].p).toFixed(2) + "%0A";
+total += cart[i].q * cart[i].p;
 }
 
-text += "%0A💰 المجموع: $"+total.toFixed(2);
-text += "%0A👤 "+name;
-text += "%0A📞 "+phone;
-text += "%0A📍 "+address;
-text += "%0A📝 "+note;
+text += "%0A💰 المجموع: $" + total.toFixed(2);
+text += "%0A👤 " + name;
+text += "%0A📞 " + phone;
+text += "%0A📍 " + address;
+text += "%0A📝 " + note;
 
-window.open("https://wa.me/96181123217?text="+text,"_blank");
+window.open("https://wa.me/96181123217?text=" + text, "_blank");
 
-cart={};
-render();
+cart = {};
+renderCart();
 closeCart();
+}
+
+/* ================= AUTO USER LOAD ================= */
+
+function loadUserData(){
+
+let phone = document.getElementById("phone").value.trim();
+
+if(phone.length < 6) return;
+
+let data = localStorage.getItem("user_" + phone);
+
+if(data){
+data = JSON.parse(data);
+
+document.getElementById("name").value = data.name || "";
+document.getElementById("address").value = data.address || "";
+document.getElementById("note").value = data.note || "";
+}
 }
 
 /* ================= NAV ================= */
 
 function show(id){
-document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
+document.querySelectorAll(".menu").forEach(m => m.classList.add("hidden"));
 document.getElementById(id).classList.remove("hidden");
-document.getElementById("welcome").style.display="none";
+document.getElementById("welcome").style.display = "none";
 }
 
 function home(){
-document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
-document.getElementById("welcome").style.display="block";
+document.querySelectorAll(".menu").forEach(m => m.classList.add("hidden"));
+document.getElementById("welcome").style.display = "block";
 }
 
-/* ================= ADMIN ================= */
+/* ================= ADMIN PANEL ================= */
 
 function adminLogin(){
-document.getElementById("adminPanel").style.display="block";
+document.getElementById("adminPanel").style.display = "block";
 }
 
 function checkAdmin(){
-let pass=document.getElementById("a_pass").value;
+let pass = document.getElementById("a_pass").value;
 
-if(pass==="1234"){
-document.getElementById("adminTools").style.display="block";
+if(pass === "1234"){
+document.getElementById("adminTools").style.display = "block";
 }else{
 alert("كلمة السر خطأ");
 }
 }
 
-/* ================= SEARCH ================= */
+/* ================= SEARCH ADMIN ================= */
 
 function searchItems(){
 
-let text=document.getElementById("searchAdmin").value.toLowerCase();
-let items=document.querySelectorAll(".dish");
+let text = document.getElementById("searchAdmin").value.toLowerCase();
+let dishes = document.querySelectorAll(".dish");
 
-let results=document.getElementById("searchResults");
-results.innerHTML="";
+let result = document.getElementById("searchResults");
+result.innerHTML = "";
 
-items.forEach(d=>{
+dishes.forEach(d => {
 
-let name=d.querySelector("p").innerText;
+let name = d.querySelector("p").innerText;
 
 if(name.toLowerCase().includes(text)){
 
-results.innerHTML += `
+result.innerHTML += `
 <div class="search-item">
 <span>${name}</span>
-
 <div class="search-actions">
 <button class="edit-btn" onclick="quickEdit('${name}')">تعديل</button>
 <button class="delete-btn" onclick="quickDelete('${name}')">حذف</button>
 </div>
-
 </div>
 `;
 
@@ -881,7 +742,7 @@ results.innerHTML += `
 
 function quickDelete(name){
 
-document.querySelectorAll(".dish").forEach(d=>{
+document.querySelectorAll(".dish").forEach(d => {
 if(d.querySelector("p").innerText === name){
 d.remove();
 }
@@ -897,7 +758,7 @@ function quickEdit(name){
 let newName = prompt("الاسم الجديد", name);
 let newPrice = prompt("السعر الجديد");
 
-document.querySelectorAll(".dish").forEach(d=>{
+document.querySelectorAll(".dish").forEach(d => {
 if(d.querySelector("p").innerText === name){
 
 if(newName) d.querySelector("p").innerText = newName;
@@ -907,25 +768,6 @@ if(newPrice) d.querySelector(".price").innerText = newPrice + "$";
 });
 
 searchItems();
-}
-
-/* ================= AUTO USER LOAD ================= */
-
-function loadUserData(){
-
-let phone=document.getElementById("phone").value.trim();
-
-if(phone.length < 6) return;
-
-let data=localStorage.getItem("user_"+phone);
-
-if(data){
-data=JSON.parse(data);
-
-document.getElementById("name").value = data.name || "";
-document.getElementById("address").value = data.address || "";
-document.getElementById("note").value = data.note || "";
-}
 }
 
 </script>
