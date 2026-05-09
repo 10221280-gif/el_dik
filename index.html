@@ -273,6 +273,8 @@ margin-top:20px;
 <button onclick="show('sandwich')">السندويش</button>
 <button onclick="show('berger')">برغر</button>
 <button onclick="show('سناك')">سناك</button>
+<button onclick="show('بروستد')">بروستد</button>
+<button onclick="show('extra')">extra</button>
 <button onclick="show('عصير')">عصير</button>
 <button onclick="home()">الرئيسية</button>
 </nav>
@@ -537,7 +539,26 @@ margin-top:20px;
 <button onclick="remove('وجبة دجاج مشوي')">➖</button>
 </div>
 </div>
-
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>وجبة اسكلوب</p>
+<div class="ingredients"> صدر دجاج اسكلوب 4 , ثوم , كولسلو ,بطاطا</div>
+<div class="price">7$</div>
+<div class="controls">
+<button onclick="add('وجبة اسكلوب',7)">➕</button>
+<button onclick="remove('وجبة اسكلوب')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>وجبة ناغتس</p>
+<div class="ingredients">  قطع ناغتس 5 , كتشب  ,بطاطا</div>
+<div class="price">4$</div>
+<div class="controls">
+<button onclick="add('وجبة ناغتس',4)">➕</button>
+<button onclick="remove('وجبة ناغتس')">➖</button>
+</div>
+</div>
 <div class="dish">
 <img src="assets/images/img1.jpeg">
 <p>وجبة الديك</p>
@@ -561,7 +582,94 @@ margin-top:20px;
 </div>
 
 </section>
+<section id="بروستد" class="menu hidden">
 
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>نصف فروج بروستد</p>
+<div class="ingredients">   بطاطا،توم، كبيس ، ملفوف ، كتشب</div>
+<div class="price">8$</div>
+<div class="controls">
+<button onclick="add('نصف فروج بروستد',8)">➕</button>
+<button onclick="remove('نصف فروج بروستد')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p> فروج بروستد</p>
+<div class="ingredients">   بطاطا،توم، كبيس ، ملفوف ، كتشب</div>
+<div class="price">15.5$</div>
+<div class="controls">
+<button onclick="add(' فروج بروستد',15.5)">➕</button>
+<button onclick="remove(' فروج بروستد')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p> فروج ونص بروستد</p>
+<div class="ingredients">   بطاطا،توم، كبيس ، ملفوف ، كتشب</div>
+<div class="price">22$</div>
+<div class="controls">
+<button onclick="add(' فروج ونص بروستد',22)">➕</button>
+<button onclick="remove(' فروج ونص بروستد')">➖</button>
+</div>
+</div>
+</section>
+<section id="extra" class="menu hidden">
+
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>صدر دجاج </p>
+
+<div class="price">2.2$</div>
+<div class="controls">
+<button onclick="add('صدر دجاج ',2.2)">➕</button>
+<button onclick="remove('صدر دجاج ')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>قطعة  كرسبي </p>
+
+<div class="price">1.65$</div>
+<div class="controls">
+<button onclick="add('قطعة  كرسبي ',1.65)">➕</button>
+<button onclick="remove('قطعة  كرسبي ')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>شريحة  لحم </p>
+
+<div class="price">2.55$</div>
+<div class="controls">
+<button onclick="add('شريحة  لحم ',2.55)">➕</button>
+<button onclick="remove('شريحة  لحم ')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>سلطة  ملفوف </p>
+
+<div class="price">2.55$</div>
+<div class="controls">
+<button onclick="add('سلطة  ملفوف ',1.3)">➕</button>
+<button onclick="remove('سلطة  ملفوف ')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>  صوص</p>
+<div class="ingredients">    ,مايونيز ,  هاني مسترد ,بوفالو , ثوم, رانش ، باربكيو ، كاتشب , شيدر , افوكادو , ساوزند</div>
+<div class="price">0.9$</div>
+<div class="controls">
+<button onclick="add(' صوص',0.9)">➕</button>
+<button onclick="remove(' صوص')">➖</button>
+</div>
+</div>
+
+
+</section>
 <section id="عصير" class="menu hidden">
 
 <div class="dish">
