@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -24,241 +23,737 @@ const db = firebase.firestore();
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
+  <style>
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
 
 body{
+
 font-family:'Cairo',sans-serif;
+
 color:#fff;
+
 text-align:center;
+
 background:url('5f099691-9a86-4815-b501-8396c9704fb8.jpeg') center/cover fixed;
+
+overflow-x:hidden;
+
 }
 
 body::before{
+
 content:"";
+
 position:fixed;
+
 inset:0;
+
 background:rgba(0,0,0,.78);
+
 z-index:-1;
+
 }
 
-header{padding:18px 15px 8px;}
+header{
+
+padding:18px 15px 8px;
+
+}
 
 .logo{
+
 display:flex;
+
 justify-content:center;
+
 align-items:center;
+
 margin-top:10px;
+
 }
 
 .main-logo{
+
 width:250px;
+
 height:auto;
+
 mix-blend-mode:lighten;
+
 opacity:.95;
+
 filter:drop-shadow(0 0 12px rgba(255,80,0,.25));
+
 }
 
-nav{margin:8px 10px 15px;}
+nav{
+
+margin:8px 10px 15px;
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:10px;
+
+}
 
 nav button{
+
 background:#111;
+
 color:#ff6a00;
+
 border:1px solid #ff6a00;
-padding:10px 15px;
+
+padding:11px 18px;
+
 border-radius:30px;
-margin:5px;
+
 cursor:pointer;
+
 font-weight:700;
+
+transition:.3s;
+
 }
 
-#welcome{padding:20px;}
+nav button:hover{
+
+background:#ff6a00;
+
+color:#fff;
+
+transform:translateY(-2px);
+
+}
+
+#welcome{
+
+padding:20px;
+
+}
 
 #welcome img{
+
 width:90%;
+
 max-width:450px;
+
 border-radius:20px;
+
 box-shadow:0 0 20px rgba(255,100,0,.5);
+
 }
 
 #welcome p{
+
 margin-top:15px;
+
 font-weight:bold;
+
 color:#ffcc80;
+
+font-size:20px;
+
 }
 
 .social{
+
 display:flex;
+
 justify-content:center;
+
 gap:10px;
+
 flex-wrap:wrap;
+
 margin-top:15px;
+
 }
 
 .social a{
+
 background:#ff6a00;
+
 color:#fff;
+
 text-decoration:none;
+
 padding:10px 16px;
+
 border-radius:30px;
+
 font-weight:bold;
+
+transition:.3s;
+
+}
+
+.social a:hover{
+
+transform:scale(1.05);
+
 }
 
 .menu{
+
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-padding:20px;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+padding:25px;
+
+max-width:1400px;
+
+margin:auto;
+
 }
 
-.menu.hidden{display:none;}
+.menu.hidden{
+
+display:none;
+
+}
 
 .dish{
+
 background:#151515;
-border-radius:15px;
+
+border-radius:20px;
+
 overflow:hidden;
-box-shadow:0 0 10px rgba(255,100,0,.3);
+
+box-shadow:0 0 15px rgba(255,100,0,.18);
+
+transition:.3s;
+
+border:1px solid rgba(255,255,255,.05);
+
+}
+
+.dish:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 25px rgba(255,100,0,.35);
+
 }
 
 .dish img{
+
 width:100%;
-height:150px;
+
+height:210px;
+
 object-fit:cover;
+
 }
 
 .dish p{
-padding:10px 10px 4px;
+
+padding:12px 10px 4px;
+
 color:#ffd7a0;
+
 font-weight:bold;
+
+font-size:19px;
+
 }
 
 .ingredients{
-font-size:12px;
+
+font-size:13px;
+
 color:#cfcfcf;
-padding:0 10px 6px;
+
+padding:0 12px 10px;
+
+line-height:1.8;
+
+min-height:55px;
+
 }
 
 .price{
+
 color:#ffb86b;
-font-size:14px;
-padding-bottom:5px;
+
+font-size:18px;
+
+font-weight:bold;
+
+padding-bottom:10px;
+
 }
 
 .controls{
+
 display:flex;
+
 justify-content:center;
-gap:10px;
-padding:10px;
+
+gap:12px;
+
+padding:14px;
+
 }
 
 .controls button{
+
 background:#ff6a00;
+
+color:white;
+
 border:none;
-padding:6px 10px;
-border-radius:8px;
+
+padding:9px 16px;
+
+border-radius:12px;
+
 cursor:pointer;
+
 font-weight:bold;
+
+font-size:16px;
+
+transition:.3s;
+
+}
+
+.controls button:hover{
+
+transform:scale(1.08);
+
 }
 
 .cart-btn{
+
 position:fixed;
+
 bottom:20px;
+
 right:20px;
-background:#ff6a00;
+
+background:linear-gradient(45deg,#ff6a00,#ff8c00);
+
 border:none;
-padding:15px;
+
+padding:18px;
+
 border-radius:50%;
-font-size:18px;
+
+font-size:22px;
+
 cursor:pointer;
+
 z-index:999;
+
+box-shadow:0 0 20px rgba(255,106,0,.5);
+
 }
 
 .cart-count{
+
 position:fixed;
-bottom:55px;
+
+bottom:60px;
+
 right:15px;
+
 background:red;
-width:22px;
-height:22px;
+
+width:25px;
+
+height:25px;
+
 border-radius:50%;
+
 display:flex;
+
 align-items:center;
+
 justify-content:center;
-font-size:12px;
+
+font-size:13px;
+
 font-weight:bold;
+
 z-index:999;
+
 }
 
 .admin-btn{
+
 position:fixed;
+
 left:15px;
+
 bottom:20px;
+
 background:#111;
+
 color:#ff6a00;
+
 border:1px solid #ff6a00;
-padding:10px 12px;
-border-radius:25px;
-font-size:12px;
+
+padding:12px 16px;
+
+border-radius:30px;
+
+font-size:13px;
+
 cursor:pointer;
+
 z-index:999;
+
+font-weight:bold;
+
+transition:.3s;
+
 }
 
-.cart,.admin-panel{
+.admin-btn:hover{
+
+background:#ff6a00;
+
+color:#fff;
+
+}
+
+.cart,
+
+.admin-panel{
+
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#0f0f0f;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:95%;
+
+max-width:620px;
+
+max-height:90vh;
+
+background:#111;
+
 display:none;
-padding:20px;
+
+padding:25px;
+
 overflow:auto;
+
 z-index:9999;
+
+border-radius:25px;
+
+box-shadow:0 0 40px rgba(0,0,0,.7);
+
+border:1px solid rgba(255,106,0,.25);
+
+backdrop-filter:blur(10px);
+
 }
 
-input,textarea{
-width:100%;
-padding:10px;
-margin:5px 0;
+.cart h2,
+
+.admin-panel h2{
+
+margin-bottom:20px;
+
+color:#ff6a00;
+
+font-size:28px;
+
+}
+
+.cart-item{
+
+background:#1b1b1b;
+
+border:1px solid rgba(255,106,0,.2);
+
+padding:15px;
+
+margin:12px 0;
+
+border-radius:15px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:10px;
+
+font-size:15px;
+
+}
+
+.cart-item button{
+
+background:red;
+
+color:white;
+
 border:none;
-border-radius:8px;
+
+padding:8px 12px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.cart-item button:hover{
+
+transform:scale(1.05);
+
+}
+
+input,
+
+textarea{
+
+width:100%;
+
+padding:14px;
+
+margin:8px 0;
+
+border:none;
+
+border-radius:12px;
+
+background:#1d1d1d;
+
+color:white;
+
+font-size:15px;
+
+outline:none;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+input:focus,
+
+textarea:focus{
+
+border-color:#ff6a00;
+
+box-shadow:0 0 10px rgba(255,106,0,.25);
+
 }
 
 button{
+
 font-family:'Cairo',sans-serif;
+
 }
 
-.whatsapp,.save-btn{
+.whatsapp{
+
 background:#25D366;
+
 color:#fff;
+
 border:none;
+
 padding:15px;
+
 width:100%;
-border-radius:30px;
+
+border-radius:15px;
+
 margin-top:10px;
+
 cursor:pointer;
+
 font-weight:bold;
+
+font-size:16px;
+
+}
+
+.save-btn{
+
+background:linear-gradient(45deg,#ff6a00,#ff8c00);
+
+color:#fff;
+
+border:none;
+
+padding:15px;
+
+width:100%;
+
+border-radius:15px;
+
+margin-top:10px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+font-size:15px;
+
+transition:.3s;
+
+}
+
+.save-btn:hover{
+
+transform:scale(1.02);
+
 }
 
 .close-btn{
+
 background:#333;
+
 color:#fff;
+
 border:none;
+
 padding:15px;
+
 width:100%;
-border-radius:30px;
+
+border-radius:15px;
+
 margin-top:10px;
+
 cursor:pointer;
+
+}
+
+.admin-panel hr{
+
+margin:20px 0;
+
+border:none;
+
+height:1px;
+
+background:rgba(255,255,255,.1);
+
 }
 
 footer{
-background:#111;
-color:#ff6a00;
-padding:10px;
-margin-top:20px;
-}
-</style>
 
+background:#111;
+
+color:#ff6a00;
+
+padding:15px;
+
+margin-top:30px;
+
+font-weight:bold;
+
+}
+
+/* تحسين العربة للحاسوب */
+
+@media(min-width:900px){
+
+.cart{
+
+width:430px;
+
+left:auto;
+
+right:30px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+border-radius:30px;
+
+}
+
+.admin-panel{
+
+width:700px;
+
+}
+
+.menu{
+
+grid-template-columns:repeat(4,1fr);
+
+}
+
+}
+
+/* موبايل */
+
+@media(max-width:700px){
+
+.menu{
+
+grid-template-columns:repeat(2,1fr);
+
+padding:12px;
+
+gap:12px;
+
+}
+
+.dish img{
+
+height:140px;
+
+}
+
+.dish p{
+
+font-size:15px;
+
+}
+
+.ingredients{
+
+font-size:11px;
+
+min-height:auto;
+
+}
+
+.price{
+
+font-size:15px;
+
+}
+
+}
+  </style>
 </head>
 
 <body>
@@ -862,6 +1357,10 @@ margin-top:20px;
 <button onclick="checkAdmin()">دخول</button>
 
 <div id="adminTools" style="display:none;">
+  <input 
+id="searchItem" 
+placeholder="🔍 ابحث عن صنف..."
+onkeyup="searchItems()">
 
 <input id="itemName" placeholder="اسم الصنف">
 <input id="itemPrice" placeholder="السعر">
@@ -893,195 +1392,509 @@ margin-top:20px;
 <footer>©️ مطعم الديك</footer>
 
 <script>
-
 let cart = {};
+
+/* ================= SEARCH ================= */
+
+function searchItems(){
+
+let value=document
+
+.getElementById("searchItem")
+
+.value
+
+.toLowerCase();
+
+let items=document.querySelectorAll(".dish");
+
+items.forEach(d=>{
+
+let name=d.querySelector("p")
+
+.innerText
+
+.toLowerCase();
+
+if(name.includes(value)){
+
+d.style.display="block";
+
+}else{
+
+d.style.display="none";
+
+}
+
+});
+
+}
 
 /* ================= CART ================= */
 
 function add(n,p){
-  if(!cart[n]) cart[n]={q:0,p};
-  cart[n].q++;
-  render();
+
+if(!cart[n]){
+
+cart[n]={q:0,p};
+
+}
+
+cart[n].q++;
+
+render();
+
 }
 
 function remove(n){
-  if(cart[n]){
-    cart[n].q--;
-    if(cart[n].q<=0) delete cart[n];
-    render();
-  }
+
+if(cart[n]){
+
+cart[n].q--;
+
+if(cart[n].q<=0){
+
+delete cart[n];
+
+}
+
+render();
+
+}
+
 }
 
 function render(){
-  let c=document.getElementById("items");
-  c.innerHTML="";
-  let total=0,count=0;
 
-  for(let i in cart){
-    total+=cart[i].q*cart[i].p;
-    count+=cart[i].q;
+let c=document.getElementById("items");
 
-    c.innerHTML+=`
-      <div class="cart-item">
-        ${i} x${cart[i].q} = $${cart[i].q*cart[i].p}
-        <button onclick="deleteItemCart('${i}')">حذف</button>
-      </div>
-    `;
-  }
+c.innerHTML="";
 
-  document.getElementById("total").innerText="المجموع: $"+total;
-  document.getElementById("count").innerText=count;
+let total=0;
+
+let count=0;
+
+for(let i in cart){
+
+total+=cart[i].q*cart[i].p;
+
+count+=cart[i].q;
+
+c.innerHTML+=`
+
+<div class="cart-item">
+
+<div>
+
+<b>${i}</b><br>
+
+الكمية: ${cart[i].q}
+
+</div>
+
+<div>
+
+$${(cart[i].q*cart[i].p).toFixed(2)}
+
+</div>
+
+<button onclick="deleteItemCart('${i}')">
+
+حذف
+
+</button>
+
+</div>
+
+`;
+
 }
+
+document.getElementById("total").innerText=
+
+"المجموع: $"+total.toFixed(2);
+
+document.getElementById("count").innerText=count;
+
+}
+
+/* حذف كامل */
 
 function deleteItemCart(n){
-  delete cart[n];
-  render();
+
+delete cart[n];
+
+render();
+
 }
+
+/* فتح العربة */
 
 function openCart(){
-  document.getElementById("cart").style.display="block";
-  render();
+
+document.getElementById("cart").style.display="block";
+
+render();
+
 }
 
+/* اغلاق العربة */
+
 function closeCart(){
-  document.getElementById("cart").style.display="none";
+
+document.getElementById("cart").style.display="none";
+
 }
 
 /* ================= ORDER ================= */
 
 function send(){
-  if(Object.keys(cart).length===0){
-    alert("السلة فارغة");
-    return;
-  }
 
-  let name=document.getElementById("name").value;
-  let phone=document.getElementById("phone").value;
-  let address=document.getElementById("address").value;
-  let note=document.getElementById("note").value;
+if(Object.keys(cart).length===0){
 
-  let text="🛒 طلب جديد%0A%0A";
-  let total=0;
+alert("السلة فارغة");
 
-  for(let i in cart){
-    text+=i+" x"+cart[i].q+" = $"+(cart[i].q*cart[i].p)+"%0A";
-    total+=cart[i].q*cart[i].p;
-  }
+return;
 
-  text+="%0A💰 المجموع: $"+total;
-  text+="%0A👤 "+name;
-  text+="%0A📞 "+phone;
-  text+="%0A📍 "+address;
-  text+="%0A📝 "+note;
+}
 
-  window.open("https://wa.me/96181123217?text="+text,"_blank");
+let name=document.getElementById("name").value;
 
-  cart={};
-  render();
-  closeCart();
+let phone=document.getElementById("phone").value;
+
+let address=document.getElementById("address").value;
+
+let note=document.getElementById("note").value;
+
+let text="🛒 طلب جديد%0A%0A";
+
+let total=0;
+
+for(let i in cart){
+
+text+=
+
+i+
+
+" x"+
+
+cart[i].q+
+
+" = $"+
+
+(cart[i].q*cart[i].p).toFixed(2)+
+
+"%0A";
+
+total+=cart[i].q*cart[i].p;
+
+}
+
+text+="%0A💰 المجموع: $"+total.toFixed(2);
+
+text+="%0A👤 الاسم: "+name;
+
+text+="%0A📞 الهاتف: "+phone;
+
+text+="%0A📍 العنوان: "+address;
+
+text+="%0A📝 ملاحظة: "+note;
+
+window.open(
+
+"https://wa.me/96181123217?text="+text,
+
+"_blank"
+
+);
+
+cart={};
+
+render();
+
+closeCart();
+
 }
 
 /* ================= NAV ================= */
 
 function show(id){
-  document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
-  document.getElementById("welcome").style.display="none";
+
+document
+
+.querySelectorAll(".menu")
+
+.forEach(e=>e.classList.add("hidden"));
+
+document
+
+.getElementById(id)
+
+.classList.remove("hidden");
+
+document
+
+.getElementById("welcome")
+
+.style.display="none";
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
 }
 
 function home(){
-  document.querySelectorAll(".menu").forEach(e=>e.classList.add("hidden"));
-  document.getElementById("welcome").style.display="block";
+
+document
+
+.querySelectorAll(".menu")
+
+.forEach(e=>e.classList.add("hidden"));
+
+document
+
+.getElementById("welcome")
+
+.style.display="block";
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
 }
 
-/* ================= ADMIN SYSTEM (FULL WORKING) ================= */
+/* ================= ADMIN ================= */
 
 function adminLogin(){
-  document.getElementById("adminPanel").style.display="block";
+
+document.getElementById("adminPanel")
+
+.style.display="block";
+
 }
+
+/* كلمة السر */
 
 function checkAdmin(){
-  let pass=document.getElementById("a_pass").value;
 
-  if(pass==="1234"){
-    document.getElementById("adminTools").style.display="block";
-  }else{
-    alert("كلمة السر خطأ");
-  }
+let pass=
+
+document.getElementById("a_pass").value;
+
+if(pass==="1234"){
+
+document.getElementById("adminTools")
+
+.style.display="block";
+
+alert("تم تسجيل الدخول");
+
+}else{
+
+alert("كلمة السر خطأ");
+
 }
 
-/* ADD ITEM */
+}
+
+/* ================= ADD ITEM ================= */
 
 function addItem(){
-  let name=document.getElementById("itemName").value;
-  let price=document.getElementById("itemPrice").value;
-  let img=document.getElementById("itemImg").value;
 
-  if(!name || !price){
-    alert("املأ البيانات");
-    return;
-  }
+let name=
 
-  let menu=document.querySelector(".menu:not(.hidden)");
+document.getElementById("itemName").value;
 
-  let div=document.createElement("div");
-  div.className="dish";
+let price=
 
-  div.innerHTML=`
-    <img src="${img || 'assets/images/img1.jpeg'}">
-    <p>${name}</p>
-    <div class="ingredients">مضاف من الأدمن</div>
-    <div class="price">${price}$</div>
-    <div class="controls">
-      <button onclick="add('${name}',${price})">➕</button>
-      <button onclick="remove('${name}')">➖</button>
-    </div>
-  `;
+document.getElementById("itemPrice").value;
 
-  menu.appendChild(div);
+let img=
 
-  alert("تمت الإضافة");
+document.getElementById("itemImg").value;
+
+if(!name || !price){
+
+alert("املأ البيانات");
+
+return;
+
 }
 
-/* EDIT ITEM */
+let menu=
+
+document.querySelector(".menu:not(.hidden)");
+
+if(!menu){
+
+alert("افتح القسم أولاً");
+
+return;
+
+}
+
+let div=document.createElement("div");
+
+div.className="dish";
+
+div.innerHTML=`
+
+<img src="${img || 'assets/images/img1.jpeg'}">
+
+<p>${name}</p>
+
+<div class="ingredients">
+
+تمت إضافته من لوحة الأدمن
+
+</div>
+
+<div class="price">
+
+${price}$
+
+</div>
+
+<div class="controls">
+
+<button onclick="add('${name}',${price})">
+
+➕
+
+</button>
+
+<button onclick="remove('${name}')">
+
+➖
+
+</button>
+
+</div>
+
+`;
+
+menu.appendChild(div);
+
+alert("تمت الإضافة بنجاح");
+
+}
+
+/* ================= EDIT ITEM ================= */
 
 function editItem(){
-  let oldName=document.getElementById("oldName").value;
-  let newName=document.getElementById("newName").value;
-  let newPrice=document.getElementById("newPrice").value;
 
-  let items=document.querySelectorAll(".dish");
+let oldName=
 
-  items.forEach(d=>{
-    if(d.innerText.includes(oldName)){
-      if(newName) d.querySelector("p").innerText=newName;
-      if(newPrice) d.querySelector(".price").innerText=newPrice+"$";
-    }
-  });
+document.getElementById("oldName").value;
 
-  alert("تم التعديل");
+let newName=
+
+document.getElementById("newName").value;
+
+let newPrice=
+
+document.getElementById("newPrice").value;
+
+let items=document.querySelectorAll(".dish");
+
+let found=false;
+
+items.forEach(d=>{
+
+let title=d.querySelector("p");
+
+if(title.innerText.includes(oldName)){
+
+found=true;
+
+if(newName){
+
+title.innerText=newName;
+
 }
 
-/* DELETE ITEM */
+if(newPrice){
+
+d.querySelector(".price")
+
+.innerText=newPrice+"$";
+
+}
+
+}
+
+});
+
+if(found){
+
+alert("تم تعديل الصنف");
+
+}else{
+
+alert("الصنف غير موجود");
+
+}
+
+}
+
+/* ================= DELETE ITEM ================= */
 
 function deleteItem(){
-  let name=document.getElementById("delName").value;
 
-  let items=document.querySelectorAll(".dish");
+let name=
 
-  items.forEach(d=>{
-    if(d.innerText.includes(name)){
-      d.remove();
-    }
-  });
+document.getElementById("delName").value;
 
-  alert("تم الحذف");
+let items=document.querySelectorAll(".dish");
+
+let found=false;
+
+items.forEach(d=>{
+
+let title=
+
+d.querySelector("p").innerText;
+
+if(title.includes(name)){
+
+d.remove();
+
+found=true;
+
 }
+
+});
+
+if(found){
+
+alert("تم حذف الصنف");
+
+}else{
+
+alert("الصنف غير موجود");
+
+}
+
+}
+
+/* ================= CLOSE ADMIN ================= */
 
 function closeAdmin(){
-  document.getElementById("adminPanel").style.display="none";
-}
 
+document.getElementById("adminPanel")
+
+.style.display="none";
+
+}
 </script>
 
 </body>
