@@ -270,6 +270,7 @@ margin-top:20px;
 </header>
 
 <nav>
+  <button onclick="show('مقبلات')">مقبلات</button>
 <button onclick="show('sandwich')">السندويش</button>
 <button onclick="show('berger')">برغر</button>
 <button onclick="show('سناك')">سناك</button>
@@ -290,11 +291,115 @@ margin-top:20px;
 </section>
 
 <button class="admin-btn" onclick="adminLogin()">ADMIN</button>
+<section id="مقبلات" class="menu hidden">
+
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>بطاطا مقلية smal</p>
+<div class="ingredients">بطاطا مقلية تقدم مع كتشب</div>
+<div class="price">2$</div>
+<div class="controls">
+<button onclick="add('بطاطا مقلية smal',2)">➕</button>
+<button onclick="remove('بطاطا مقلية smal')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>بطاطا مقلية larg</p>
+<div class="ingredients">بطاطا مقلية تقدم مع كتشب</div>
+<div class="price">3.5$</div>
+<div class="controls">
+<button onclick="add('بطاطا مقلية larg',3.5)">➕</button>
+<button onclick="remove('بطاطا مقلية larg')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="WhatsApp Image 2026-05-21 at 2.46.59 PM (4).jpeg">
+<p>بطاطا كيرلي </p>
+<div class="ingredients">بطاطا كيرلي تقدم مع صوص شدر</div>
+<div class="price">3.5$</div>
+<div class="controls">
+<button onclick="add('بطاطا كيرلي ',3.5)">➕</button>
+<button onclick="remove('بطاطا كيرلي ')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="WhatsApp Image 2026-05-21 at 2.46.59 PM.jpeg">
+<p>موزاريلا ستيكس </p>
+<div class="ingredients">اربع قطع تقدم مع صوص ساوزند</div>
+<div class="price">3.5$</div>
+<div class="controls">
+<button onclick="add('موزاريلا ستكس ',3.5)">➕</button>
+<button onclick="remove('موزاريلا ستكس ')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="WhatsApp Image 2026-05-21 at 2.46.58 PM.jpeg">
+<p>ستريبس دجاج </p>
+<div class="ingredients"> قطع 4 ,(باربيكيو ,بوفالو ,هاني مسترد) </div>
+<div class="price">5$</div>
+<div class="controls">
+<button onclick="add('ستريبس دجاج ',5)">➕</button>
+<button onclick="remove('ستريبس دجاج ')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>اجنحة دجاج 6 قطع</p>
+<div class="ingredients">6 pieces  ,(باربيكيو ,بوفالو ,هاني مسترد) </div>
+<div class="price">4.5$</div>
+<div class="controls">
+<button onclick="add('اجنحة دجاج 6 قطع',4.5)">➕</button>
+<button onclick="remove('اجنحة دجاج 6 قطع')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>اجنحة دجاج 12 قطع</p>
+<div class="ingredients">12 pieces  ,(باربيكيو ,بوفالو ,هاني مسترد) </div>
+<div class="price">8.5$</div>
+<div class="controls">
+<button onclick="add('اجنحة دجاج 12 قطع',8.5)">➕</button>
+<button onclick="remove('اجنحة دجاج 12 قطع')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="WhatsApp Image 2026-05-21 at 2.46.58 PM (2).jpeg">
+<p>كومبو الديك</p>
+<div class="ingredients">( بطاطا كيرلي , 4 قطع ستريبس,4 قطع موزاريلا ,4 كرات تشيدر  , 4 صوص )</div>
+<div class="price">12$</div>
+<div class="controls">
+<button onclick="add('كومبو الديك',12)">➕</button>
+<button onclick="remove('كومبو الديك')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="WhatsApp Image 2026-05-21 at 2.46.59 PM (1).jpeg">
+<p>كرات الشيدر </p>
+<div class="ingredients">اربع قطع تقدم مع صوص ساوزند</div>
+<div class="price">3.5$</div>
+<div class="controls">
+<button onclick="add('كرات الشيدر',3.5)">➕</button>
+<button onclick="remove('كرات الشيدر')">➖</button>
+</div>
+</div>
+<div class="dish">
+<img src="assets/images/img1.jpeg">
+<p>علبة ارز </p>
+<div class="ingredients">ارز كبسه سعودي تقدم مع صوص الدقوس</div>
+<div class="price">3.5$</div>
+<div class="controls">
+<button onclick="add('كرات الشيدر',3.5)">➕</button>
+<button onclick="remove('كرات الشيدر')">➖</button>
+</div>
+</div>
+</section>
+
 
 <section id="sandwich" class="menu hidden">
 
 <div class="dish">
-<img src="assets/images/img1.jpeg">
+<img src="WhatsApp Image 2026-05-21 at 2.46.58 PM (1).jpeg">
 <p>كرسبي سندويش</p>
 <div class="ingredients">دجاج كرسبي ، بطاطا،توم، كبيس ، ملفوف ، كتشب</div>
 <div class="price">4.5$</div>
@@ -338,7 +443,7 @@ margin-top:20px;
 </div>
 
 <div class="dish">
-<img src="assets/images/img1.jpeg">
+<img src="WhatsApp Image 2026-05-21 at 2.46.58 PM (3).jpeg">
 <p>طاووق سندويش</p>
 <div class="ingredients">طاووق مشوي ،بطاطا ، ثوم ،كبيس</div>
 <div class="price">4.5$</div>
@@ -360,7 +465,7 @@ margin-top:20px;
 </div>
 
 <div class="dish">
-<img src="assets/images/img1.jpeg">
+<img src="WhatsApp Image 2026-05-21 at 2.46.57 PM.jpeg">
 <p>بطاطا سندويش</p>
 <div class="ingredients">ثوم ،كبيس ، سلطة ملفوف ، كتشب</div>
 <div class="price">2$</div>
@@ -371,7 +476,7 @@ margin-top:20px;
 </div>
 
 <div class="dish">
-<img src="assets/images/img1.jpeg">
+<img src="WhatsApp Image 2026-04-25 at 3.06.21 PM.jpeg">
 <p>شيكن بيستو سندويش</p>
 <div class="ingredients">صوص بيستو ،بايبي شيبس ، دجاج ، موزريلا</div>
 <div class="price">5$</div>
@@ -386,7 +491,7 @@ margin-top:20px;
 <section id="berger" class="menu hidden">
 
 <div class="dish">
-<img src="assets/images/img1.jpeg">
+<img src="WhatsApp Image 2026-05-21 at 2.46.59 PM (3).jpeg">
 <p>كلاسيك برغر دجاج</p>
 <div class="ingredients">قطعة دجاج مشوي ,كبيس ,بندورة , جبنة شيدر , صوص مدخن</div>
 <div class="price">5$</div>
@@ -438,7 +543,7 @@ margin-top:20px;
 </div>
 
 <div class="dish">
-<img src="assets/images/img1.jpeg">
+<img src="WhatsApp Image 2026-05-21 at 2.46.58 PM (4).jpeg">
 <p>برغر لبناني لحم</p>
 <div class="ingredients">قطعة لحمة , بندورة , كبيس , بطاطا , مايونيز , كتشب</div>
 <div class="price">6$</div>
@@ -571,15 +676,26 @@ margin-top:20px;
 </div>
 
 <div class="dish">
-<img src="assets/images/img1.jpeg">
+<img src="WhatsApp Image 2026-05-21 at 2.46.57 PM (1).jpeg">
 <p>وجبة كرسبي</p>
-<div class="ingredients">5 قطع كرسبي , بطاطا , كولسلو</div>
+<div class="ingredients"> قطع كرسبي 5, بطاطا , كولسلو</div>
 <div class="price">8$</div>
 <div class="controls">
 <button onclick="add('وجبة كرسبي',8)">➕</button>
 <button onclick="remove('وجبة كرسبي')">➖</button>
 </div>
 </div>
+<div class="dish">
+<img src="WhatsApp Image 2026-05-21 at 2.46.59 PM (2).jpeg">
+<p>وجبة كرسبي عائليه</p>
+<div class="ingredients"> قطع كرسبي 15, بطاطا , كولسلو</div>
+<div class="price">8$</div>
+<div class="controls">
+<button onclick="add('وجبة كرسبي عائليه',8)">➕</button>
+<button onclick="remove('وجبة كرسبي عائليه')">➖</button>
+</div>
+</div>
+
 
 </section>
 <section id="بروستد" class="menu hidden">
