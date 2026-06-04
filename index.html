@@ -745,6 +745,17 @@ font-size:11px;
 min-height:auto;
 
 }
+select{
+width:100%;
+padding:14px;
+margin:8px 0;
+border:none;
+border-radius:12px;
+background:#1d1d1d;
+color:white;
+font-size:15px;
+border:1px solid rgba(255,255,255,.08);
+}
 
 .price{
 
@@ -1121,7 +1132,7 @@ font-size:15px;
 <div class="dish">
 <img src="WhatsApp Image 2026-05-25 at 4.08.13 PM.jpeg">
 <p>وجبة طاووق</p>
-<div class="ingredients">طاووق مشوي , بطاطا (ثوم)او رز(دقوس) </div>
+<div class="ingredients">طاووق مشوي , بطاطا , ثوم</div>
 <div class="price">7$</div>
 <div class="controls">
 <button onclick="add('وجبة طاووق',7)">➕</button>
@@ -1381,11 +1392,26 @@ placeholder="🔍 ابحث عن صنف..."
 onkeyup="searchItems()">
 
 <input id="itemName" placeholder="اسم الصنف">
+
+<input id="itemDesc" placeholder="وصف الصنف">
+
 <input id="itemPrice" placeholder="السعر">
+
 <input id="itemImg" placeholder="رابط الصورة">
 
-<button class="save-btn" onclick="addItem()">إضافة صنف</button>
+<select id="itemCategory">
+  <option value="مقبلات">مقبلات</option>
+  <option value="sandwich">السندويش</option>
+  <option value="berger">برغر</option>
+  <option value="سناك">وجبات</option>
+  <option value="بروستد">بروستد</option>
+  <option value="extra">Extra</option>
+  <option value="عصير">عصير</option>
+</select>
 
+<button class="save-btn" onclick="addItem()">
+إضافة صنف
+</button>
 <hr>
 
 <input id="oldName" placeholder="اسم الصنف القديم">
@@ -1728,33 +1754,35 @@ alert("كلمة السر خطأ");
 
 function addItem(){
 
-let name=
-
+let name =
 document.getElementById("itemName").value;
 
-let price=
+let desc =
+document.getElementById("itemDesc").value;
 
+let price =
 document.getElementById("itemPrice").value;
 
-let img=
-
+let img =
 document.getElementById("itemImg").value;
+
+let category =
+document.getElementById("itemCategory").value;
 
 if(!name || !price){
 
-alert("املأ البيانات");
+alert("املأ جميع البيانات");
 
 return;
 
 }
 
-let menu=
-
-document.querySelector(".menu:not(.hidden)");
+let menu =
+document.getElementById(category);
 
 if(!menu){
 
-alert("افتح القسم أولاً");
+alert("القسم غير موجود");
 
 return;
 
@@ -1771,29 +1799,21 @@ div.innerHTML=`
 <p>${name}</p>
 
 <div class="ingredients">
-
-تمت إضافته من لوحة الأدمن
-
+${desc}
 </div>
 
 <div class="price">
-
 ${price}$
-
 </div>
 
 <div class="controls">
 
 <button onclick="add('${name}',${price})">
-
 ➕
-
 </button>
 
 <button onclick="remove('${name}')">
-
 ➖
-
 </button>
 
 </div>
@@ -1802,7 +1822,7 @@ ${price}$
 
 menu.appendChild(div);
 
-alert("تمت الإضافة بنجاح");
+alert("تمت إضافة الصنف بنجاح");
 
 }
 
